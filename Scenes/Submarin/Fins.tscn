@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://0ov0ngo3e7ga"]
+
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_0a0l3"]
+[ext_resource type="Script" uid="uid://bdbgfkq3k13l1" path="res://Scripts/Submarin/fins.gd" id="1_o5aax"]
+
+[node name="Fins" type="Node2D" unique_id=2000909386]
+script = ExtResource("1_o5aax")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=355656892]
+scale = Vector2(1.265625, 0.43750003)
+texture = ExtResource("1_0a0l3")

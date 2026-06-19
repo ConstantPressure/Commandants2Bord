@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bmo1ga6g4seyk"]
+
+[ext_resource type="Script" uid="uid://dkobwvkyhjshb" path="res://Scripts/Submarin/submarin.gd" id="1_g5k47"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_u88h8"]
+[ext_resource type="PackedScene" uid="uid://c8u65p803spse" path="res://Scenes/Submarin/Cockpit.tscn" id="2_btyt4"]
+[ext_resource type="PackedScene" uid="uid://baiaiehrf52bd" path="res://Scenes/Submarin/Motor.tscn" id="3_n20od"]
+[ext_resource type="PackedScene" uid="uid://0ov0ngo3e7ga" path="res://Scenes/Submarin/Fins.tscn" id="5_wmfhu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btyt4"]
+size = Vector2(322, 128)
+
+[node name="Submarin" type="CharacterBody2D" unique_id=1410131224]
+script = ExtResource("1_g5k47")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=703525230]
+shape = SubResource("RectangleShape2D_btyt4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1323046245]
+scale = Vector2(2.515625, 1)
+texture = ExtResource("1_u88h8")
+
+[node name="Cockpit" parent="." unique_id=837000226 instance=ExtResource("2_btyt4")]
+position = Vector2(-109, -28)
+
+[node name="Motor" parent="." unique_id=2080175365 instance=ExtResource("3_n20od")]
+position = Vector2(113, 0)
+
+[node name="Fins" parent="." unique_id=2000909386 instance=ExtResource("5_wmfhu")]
+position = Vector2(-74, 32)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1950995903]
