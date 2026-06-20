@@ -10,12 +10,12 @@ var target_speed := 0.0
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("test_action1"):
-		target_speed = 1.0
-	elif Input.is_action_pressed("test_action4"):
-		target_speed = -1.0
-	else:
-		target_speed = 0.0
+	#if Input.is_action_pressed("test_action1"):
+		#target_speed = 1.0
+	#elif Input.is_action_pressed("test_action4"):
+		#target_speed = -1.0
+	#else:
+		#target_speed = 0.0
 	
 	speed = lerp(
 		speed,

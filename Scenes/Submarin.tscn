@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://cvp2khn864x1t" path="res://Assets/Salmon.png" id="2_tc5bk"]
 [ext_resource type="Script" uid="uid://bpsumhoevejbv" path="res://Scripts/Submarin/motor.gd" id="3_wmfhu"]
 [ext_resource type="Script" uid="uid://bdbgfkq3k13l1" path="res://Scripts/Submarin/fins.gd" id="4_gc5cj"]
-[ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://Scenes/Player.tscn" id="6_gc5cj"]
 
 [node name="Submarin" type="CharacterBody2D" unique_id=1410131224]
 script = ExtResource("1_g5k47")
@@ -95,6 +94,3 @@ position = Vector2(317, 117)
 position = Vector2(-116.999985, -39)
 scale = Vector2(0.39062518, 0.31250003)
 texture = ExtResource("1_u88h8")
-
-[node name="Player" parent="." unique_id=1364299286 instance=ExtResource("6_gc5cj")]
-position = Vector2(-339, 37)
