@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dnea2oqv3p0e6"]
+
+[ext_resource type="Texture2D" uid="uid://dvei645ly458e" path="res://Assets/Objects/Mop.png" id="1_mhoia"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y47bk"]
+
+[node name="Mop" type="Node2D" unique_id=153754771]
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2103897541]
+texture = ExtResource("1_mhoia")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1412573826]
+collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_y47bk")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D" unique_id=1371667192]
+polygon = PackedVector2Array(4, -14, 4, -13, 3, -13, 3, -9, 2, -9, 2, -5, 1, -5, 1, -1, 0, -1, 0, 3, -1, 3, -1, 7, -2, 7, -2, 10, -5, 10, -5, 11, -6, 11, -6, 12, -7, 12, -7, 15, -8, 15, -8, 16, -9, 16, -9, 17, -8, 17, -8, 18, 4, 18, 4, 17, 5, 17, 5, 13, 4, 13, 4, 12, 3, 12, 3, 11, 2, 11, 2, 7, 3, 7, 3, 3, 4, 3, 4, -1, 5, -1, 5, -5, 6, -5, 6, -9, 7, -9, 7, -13, 6, -13, 6, -14)
