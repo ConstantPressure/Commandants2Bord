@@ -50,4 +50,4 @@ position = Vector2(-3, 373)
 shape = SubResource("WorldBoundaryShape2D_rgh2o")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1551265539]
-color = Color(0, 0, 0, 1)
+color = Color(0.5729883, 0.5729882, 0.57298845, 1)
