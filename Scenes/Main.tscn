@@ -50,3 +50,6 @@ texture = ExtResource("3_pbw6q")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundBoundarie" unique_id=1798785441]
 position = Vector2(-3, 373)
 shape = SubResource("WorldBoundaryShape2D_rgh2o")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1551265539]
+color = Color(0.06053035, 0.06053035, 0.060530342, 1)
