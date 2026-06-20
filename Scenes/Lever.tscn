@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dwl870574drqn"]
+
+[ext_resource type="Script" uid="uid://dk67eiorh0j72" path="res://Scripts/lever.gd" id="1_0ohsc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ic0j1"]
+radius = 22.090721
+
+[node name="Lever" type="Area2D" unique_id=1807663171 groups=["utility"]]
+script = ExtResource("1_0ohsc")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1706176574]
+offset_left = -2.0
+offset_top = -24.0
+offset_right = 2.0
+offset_bottom = 3.0
+pivot_offset = Vector2(2, 27)
+color = Color(0.49481022, 0.39992857, 0.14767072, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=357399625]
+offset_left = -17.0
+offset_right = 17.0
+offset_bottom = 6.0
+color = Color(0.60933006, 0.6093301, 0.60933006, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=449275630]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_ic0j1")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1947469811]

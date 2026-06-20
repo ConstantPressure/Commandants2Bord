@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cvp2khn864x1t" path="res://Assets/Salmon.png" id="2_tc5bk"]
 [ext_resource type="Script" uid="uid://bpsumhoevejbv" path="res://Scripts/Submarin/motor.gd" id="3_wmfhu"]
 [ext_resource type="Script" uid="uid://bdbgfkq3k13l1" path="res://Scripts/Submarin/fins.gd" id="4_gc5cj"]
+[ext_resource type="PackedScene" uid="uid://dwl870574drqn" path="res://Scenes/Lever.tscn" id="6_0qqje"]
 [ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://Scenes/Player.tscn" id="6_gc5cj"]
 
 [node name="Submarin" type="CharacterBody2D" unique_id=1410131224]
@@ -39,7 +40,6 @@ polygon = PackedVector2Array(-304, -13, -304, 4, 14, 4, 14, -35, -177, -35, -177
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1950995903]
 position = Vector2(91, 0)
-zoom = Vector2(0.9, 0.9)
 
 [node name="Cockpit" type="Node2D" parent="." unique_id=678127452]
 position = Vector2(265, -50)
@@ -69,24 +69,25 @@ texture = ExtResource("1_u88h8")
 position = Vector2(-211, 10)
 script = ExtResource("3_wmfhu")
 
-[node name="Sprite2D" type="Sprite2D" parent="Motor" unique_id=1551546923]
-position = Vector2(-122.000015, 17)
-scale = Vector2(0.34374988, 0.59375)
-texture = ExtResource("1_u88h8")
+[node name="Lever" parent="Motor" unique_id=1807663171 instance=ExtResource("6_0qqje")]
+position = Vector2(-121, 51)
+scale = Vector2(0.7, 0.7)
+lever_rotation_speed_update_speed = 0.4
 
 [node name="Fins" type="Node2D" parent="." unique_id=1091621099]
 position = Vector2(-111, -120)
 script = ExtResource("4_gc5cj")
 
-[node name="Sprite2D" type="Sprite2D" parent="Fins" unique_id=631029088]
-position = Vector2(45, 70)
-scale = Vector2(0.28125003, 0.2421875)
-texture = ExtResource("1_u88h8")
+[node name="Lever" parent="Fins" unique_id=770815668 instance=ExtResource("6_0qqje")]
+position = Vector2(39, 81.000015)
+scale = Vector2(0.7, 0.7)
+debug = true
+link_name = "Lever2"
 
-[node name="Sprite2D2" type="Sprite2D" parent="Fins" unique_id=419578390]
-position = Vector2(99.00001, 70.00001)
-scale = Vector2(0.26171875, 0.23828125)
-texture = ExtResource("1_u88h8")
+[node name="Lever2" parent="Fins" unique_id=1017698945 instance=ExtResource("6_0qqje")]
+position = Vector2(91, 81)
+scale = Vector2(0.7, 0.7)
+link_name = "Lever"
 
 [node name="Fuel" type="Node2D" parent="." unique_id=573572712]
 position = Vector2(317, 117)
@@ -97,4 +98,4 @@ scale = Vector2(0.39062518, 0.31250003)
 texture = ExtResource("1_u88h8")
 
 [node name="Player" parent="." unique_id=1364299286 instance=ExtResource("6_gc5cj")]
-position = Vector2(-339, 37)
+position = Vector2(-103, -52)
