@@ -22,3 +22,47 @@ texture = ExtResource("2_idj7w")
 [node name="Icon4" type="Sprite2D" parent="." unique_id=537012065]
 position = Vector2(491, 180)
 texture = ExtResource("2_idj7w")
+
+[node name="Icon5" type="Sprite2D" parent="." unique_id=1918517959]
+position = Vector2(1062, -379)
+texture = ExtResource("2_idj7w")
+
+[node name="Icon6" type="Sprite2D" parent="." unique_id=220665198]
+position = Vector2(1450, 537)
+texture = ExtResource("2_idj7w")
+
+[node name="Icon7" type="Sprite2D" parent="." unique_id=1301243308]
+position = Vector2(1700, -724)
+texture = ExtResource("2_idj7w")
+
+[node name="Icon8" type="Sprite2D" parent="." unique_id=1272091639]
+position = Vector2(1598, -1298)
+texture = ExtResource("2_idj7w")
+
+[node name="Icon9" type="Sprite2D" parent="." unique_id=811403582]
+position = Vector2(702, -1594)
+texture = ExtResource("2_idj7w")
+
+[node name="Icon10" type="Sprite2D" parent="." unique_id=868069102]
+position = Vector2(1336, -1601)
+texture = ExtResource("2_idj7w")
+
+[node name="Icon11" type="Sprite2D" parent="." unique_id=1576908690]
+position = Vector2(808, -1510)
+texture = ExtResource("2_idj7w")
+
+[node name="Icon12" type="Sprite2D" parent="." unique_id=1869678394]
+position = Vector2(3041, -1491)
+texture = ExtResource("2_idj7w")
+
+[node name="Icon13" type="Sprite2D" parent="." unique_id=174481520]
+position = Vector2(2133, 119)
+texture = ExtResource("2_idj7w")
+
+[node name="Icon14" type="Sprite2D" parent="." unique_id=972386886]
+position = Vector2(2889, 51)
+texture = ExtResource("2_idj7w")
+
+[node name="Icon15" type="Sprite2D" parent="." unique_id=1170232908]
+position = Vector2(2931, -546)
+texture = ExtResource("2_idj7w")

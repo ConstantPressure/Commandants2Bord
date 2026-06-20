@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var direction: Vector2 = Vector2(-1.0, 0.0)
+var direction: Vector2 = Vector2(1.0, 0.0)
 var speed: float = 0.0
 
 func _ready() -> void:

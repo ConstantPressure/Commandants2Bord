@@ -20,12 +20,12 @@ scale = Vector2(2.515625, 1)
 texture = ExtResource("1_u88h8")
 
 [node name="Cockpit" parent="." unique_id=837000226 instance=ExtResource("2_btyt4")]
-position = Vector2(-109, -28)
+position = Vector2(109, -28)
 
 [node name="Motor" parent="." unique_id=2080175365 instance=ExtResource("3_n20od")]
-position = Vector2(113, 0)
+position = Vector2(-112, -1)
 
 [node name="Fins" parent="." unique_id=2000909386 instance=ExtResource("5_wmfhu")]
-position = Vector2(-74, 32)
+position = Vector2(78, 32)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1950995903]
