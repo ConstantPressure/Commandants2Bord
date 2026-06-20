@@ -38,6 +38,10 @@ test_action4={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Outside"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

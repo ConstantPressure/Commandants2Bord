@@ -10,18 +10,32 @@
 [node name="Submarin" type="CharacterBody2D" unique_id=1410131224]
 script = ExtResource("1_g5k47")
 
+[node name="Outside" type="CollisionPolygon2D" parent="." unique_id=2117627907]
+position = Vector2(7.5645905, 5.612102)
+rotation = 0.07328512
+scale = Vector2(1.297307, 1.4339508)
+polygon = PackedVector2Array(66, -108, 146, -98, 203, -82, 261, -50, 264, -29, 246, -24, 240, -16, 262, -18, 271, -9, 254, 19, 172, 65, 66, 87, 29, 125, -6, 129, 9, 94, -81, 85, -110, 110, -143, 116, -167, 112, -145, 85, -145, 65, -203, 44, -223, 54, -255, 97, -320, 122, -293, 48, -300, -9, -341, -70, -284, -59, -228, -18, -133, -63, -103, -94, -99, -126, -61, -120, -4, -101)
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=711458133]
 position = Vector2(-38.278156, -7.818188)
 rotation = -3.0662007
-scale = Vector2(2.9597323, -3.2383573)
+scale = Vector2(2.959732, -3.2383573)
 skew = -0.0003824234
 texture = ExtResource("2_tc5bk")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=2117627907]
-position = Vector2(7.5645905, 5.612102)
-rotation = 0.07328512
-scale = Vector2(1.2973071, 1.4339509)
-polygon = PackedVector2Array(66, -108, 146, -98, 203, -82, 261, -50, 264, -29, 246, -24, 240, -16, 262, -18, 271, -9, 254, 19, 172, 65, 66, 87, 29, 125, -6, 129, 9, 94, -81, 85, -110, 110, -143, 116, -167, 112, -145, 85, -145, 65, -203, 44, -223, 54, -255, 97, -320, 122, -293, 48, -300, -9, -341, -70, -284, -59, -228, -18, -133, -63, -103, -94, -99, -126, -61, -120, -4, -101)
+[node name="Inside1" type="StaticBody2D" parent="." unique_id=35362935]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Inside1" unique_id=346248802]
+polygon = PackedVector2Array(-366, -48, -366, 68, -300, 68, -300, 31, 11, 31, 11, 69, -18, 69, -18, 39, -110, 39, -110, 102, 230, 102, 230, 28, 107, 28, 107, 70, 86, 70, 86, 55, 46, 55, 46, -42, 214, -42, 214, -17, 299, -17, 299, -72, 247, -87, 217, -84, 217, -71, 46, -71, 46, -117, -117, -117, -118, -64, -206, -64, -206, -40, -301, -40, -301, -48, -304, -45, -304, -37, -203, -37, -203, -61, -114, -61, -114, -113, 42, -113, 42, -67, 221, -67, 221, -79, 247, -82, 295, -69, 295, -21, 219, -21, 219, -46, 42, -46, 42, 59, 82, 59, 82, 74, 111, 74, 111, 32, 225, 32, 225, 98, -106, 98, -106, 43, -22, 43, -21, 72, 14, 72, 14, 27, -304, 27, -304, 65, -362, 65, -362, -45, -304, -45, -301, -48)
+
+[node name="Inside2" type="StaticBody2D" parent="." unique_id=869312950]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Inside2" unique_id=652806430]
+polygon = PackedVector2Array(-304, -13, -304, 4, 14, 4, 14, -35, -115, -35, -115, -37, -180, -37, -180, -13)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1950995903]
 position = Vector2(91, 0)
@@ -31,50 +45,56 @@ zoom = Vector2(0.9, 0.9)
 position = Vector2(265, -50)
 
 [node name="Sprite2D" type="Sprite2D" parent="Cockpit" unique_id=1482558966]
-position = Vector2(-7.249997, 4.2499986)
-scale = Vector2(0.6289063, 0.44140628)
+position = Vector2(14.000004, 20)
+scale = Vector2(0.13671888, 0.14453124)
 texture = ExtResource("1_u88h8")
 
-[node name="Area2D" type="StaticBody2D" parent="Cockpit" unique_id=1754147956]
-collision_layer = 2
-collision_mask = 2
+[node name="Storage" type="Node2D" parent="." unique_id=1189706939]
+position = Vector2(93, 63)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cockpit/Area2D" unique_id=726504898]
-polygon = PackedVector2Array(-43, -29, -43, 28, 43, 28, 43, -7, -6, -29, -43, -29, -6, -33, 48, -10, 47, 32, -47, 32, -47, -33, -6, -33)
+[node name="Sprite2D" type="Sprite2D" parent="Storage" unique_id=115412148]
+position = Vector2(-155.8125, 12.875001)
+scale = Vector2(0.54394543, 0.35742188)
+texture = ExtResource("1_u88h8")
+
+[node name="Pump" type="Node2D" parent="." unique_id=1203484049]
+position = Vector2(186, 126)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pump" unique_id=1839854943]
+position = Vector2(-138, -36)
+scale = Vector2(0.328125, 0.12500003)
+texture = ExtResource("1_u88h8")
 
 [node name="Motor" type="Node2D" parent="." unique_id=285889259]
 position = Vector2(-211, 10)
 script = ExtResource("3_wmfhu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Motor" unique_id=1551546923]
-position = Vector2(-122.00001, 0)
-scale = Vector2(0.51562494, 0.90625)
+position = Vector2(-122.000015, 17)
+scale = Vector2(0.34374988, 0.59375)
 texture = ExtResource("1_u88h8")
-
-[node name="Area2D" type="StaticBody2D" parent="Motor" unique_id=137346996]
-position = Vector2(-113, 0)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Motor/Area2D" unique_id=1628114609]
-polygon = PackedVector2Array(-37, -55, -37, 53, 20, 53, 20, -55, -37, -55, 24, -58, 24, 57, -42, 57, -42, -59, 24, -58)
 
 [node name="Fins" type="Node2D" parent="." unique_id=1091621099]
 position = Vector2(-111, -120)
 script = ExtResource("4_gc5cj")
 
 [node name="Sprite2D" type="Sprite2D" parent="Fins" unique_id=631029088]
-position = Vector2(76, 33)
-scale = Vector2(1.265625, 0.43750003)
+position = Vector2(45, 70)
+scale = Vector2(0.28125003, 0.2421875)
 texture = ExtResource("1_u88h8")
 
-[node name="Area2D" type="StaticBody2D" parent="Fins" unique_id=1344856198]
-position = Vector2(76, 33)
-collision_layer = 2
-collision_mask = 2
+[node name="Sprite2D2" type="Sprite2D" parent="Fins" unique_id=419578390]
+position = Vector2(99.00001, 70.00001)
+scale = Vector2(0.26171875, 0.23828125)
+texture = ExtResource("1_u88h8")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fins/Area2D" unique_id=1239617287]
-polygon = PackedVector2Array(-76, -25, -76, 24, 76, 24, 76, -25, -76, -25, 81, -29, 81, 28, -81, 28, -81, -29, 81, -29)
+[node name="Fuel" type="Node2D" parent="." unique_id=573572712]
+position = Vector2(317, 117)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fuel" unique_id=1218654605]
+position = Vector2(-116.999985, -39)
+scale = Vector2(0.39062518, 0.31250003)
+texture = ExtResource("1_u88h8")
 
 [node name="Player" parent="." unique_id=1364299286 instance=ExtResource("6_gc5cj")]
-position = Vector2(-337, 31)
+position = Vector2(-339, 37)
