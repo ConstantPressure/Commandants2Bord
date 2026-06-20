@@ -5,16 +5,33 @@
 [ext_resource type="Texture2D" uid="uid://bdoeqlon4505q" path="res://Assets/Submarine/5.png" id="3_l0cdu"]
 [ext_resource type="Script" uid="uid://bpsumhoevejbv" path="res://Scripts/Submarin/motor.gd" id="3_wmfhu"]
 [ext_resource type="Script" uid="uid://bdbgfkq3k13l1" path="res://Scripts/Submarin/fins.gd" id="4_gc5cj"]
+[ext_resource type="Shader" uid="uid://ch3rn0ea6jc7a" path="res://Shaders/water.gdshader" id="5_582ut"]
 [ext_resource type="Texture2D" uid="uid://bbc3k70pb3rws" path="res://Assets/Submarine/4.png" id="5_pb85f"]
 [ext_resource type="PackedScene" uid="uid://dwl870574drqn" path="res://Scenes/Lever.tscn" id="6_0qqje"]
-[ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://Scenes/Player.tscn" id="7_gc5cj"]
 [ext_resource type="Texture2D" uid="uid://cdhymep0fqo63" path="res://Assets/Objects/Screen2.png" id="8_l0cdu"]
 [ext_resource type="Texture2D" uid="uid://ba34cyhn1mrjb" path="res://Assets/Objects/Pointer2.png" id="9_vguhp"]
+[ext_resource type="Texture2D" uid="uid://bp4xp5856ypsk" path="res://Assets/Background/Ocean0.png" id="10_gfngk"]
 [ext_resource type="Texture2D" uid="uid://ch7ux53gvdm68" path="res://Assets/Objects/Pointer1.png" id="10_pb85f"]
 [ext_resource type="PackedScene" uid="uid://dsxs6o3qwpxl" path="res://Scenes/Objects/Estinguisher.tscn" id="12_vguhp"]
 [ext_resource type="PackedScene" uid="uid://dnea2oqv3p0e6" path="res://Scenes/Objects/Mop.tscn" id="13_y47bk"]
 [ext_resource type="PackedScene" uid="uid://cue33n2bnd2l5" path="res://Scenes/Objects/Light.tscn" id="14_582ut"]
 [ext_resource type="Script" uid="uid://dym33vk8njt5q" path="res://Scripts/lights.gd" id="15_rmov0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k2b2u"]
+shader = ExtResource("5_582ut")
+shader_parameter/liquid_level = 0.4570000217075
+shader_parameter/liquid_color = Color(0, 0.18431373, 0.4745098, 1)
+shader_parameter/foam_color = Color(0.8, 0.9, 1, 0.6)
+shader_parameter/wave_amplitude = 0.0110000005225
+shader_parameter/wave_frequency = 5.0
+shader_parameter/wave_speed = 2.0
+shader_parameter/gravity_angle = 0.0004100308367998018
+shader_parameter/gravity_direction = Vector2(0, 1)
+shader_parameter/foam_thickness = 0.02
+shader_parameter/shine_intensity = 0.3
+shader_parameter/add_bubble = true
+shader_parameter/bubble_scale = 10.0
+shader_parameter/bubble_speed = 0.5
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tc5bk"]
 polygon = PackedVector2Array(-366, -48, -366, 68, -300, 68, -300, 31, 11, 31, 11, 69, -18, 69, -18, 39, -110, 39, -110, 102, 230, 102, 230, 28, 107, 28, 107, 70, 86, 70, 86, 55, 46, 55, 46, -42, 214, -42, 214, -17, 299, -17, 299, -72, 247, -87, 217, -84, 217, -71, 46, -71, 46, -117, -117, -117, -118, -62, -206, -62, -206, -40, -301, -40, -301, -48, -304, -45, -304, -37, -203, -37, -203, -59, -114, -59, -114, -113, 42, -113, 42, -67, 221, -67, 221, -79, 247, -82, 295, -69, 295, -21, 219, -21, 219, -46, 42, -46, 42, 59, 82, 59, 82, 74, 111, 74, 111, 32, 225, 32, 225, 98, -106, 98, -106, 43, -22, 43, -21, 72, 14, 72, 14, 27, -304, 27, -304, 65, -362, 65, -362, -45, -304, -45, -301, -48)
@@ -58,9 +75,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vguhp"]
-bounce = 0.25
-
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mxo5y"]
 polygon = PackedVector2Array(-1.5, -4, 5, -8.5, -2.25, 0, -0.5, 1.75, 9.25, -2.25, 0.75, 3, -2.25, 2.25, -3.25, 0.5, -3, -2.75)
 
@@ -76,14 +90,23 @@ fill = 1
 fill_from = Vector2(0.46086955, 0.46521738)
 fill_to = Vector2(0.13478261, 0.13478261)
 
+[sub_resource type="Curve" id="Curve_rmov0"]
+_data = [Vector2(0, 0.6966293), 0.0, 0.0, 0, 0, Vector2(0.495, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.7), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_gfngk"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.255, 0.50561804), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0, Vector2(0.75, 0.50561804), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
 [node name="Submarin" type="CharacterBody2D" unique_id=1410131224]
 script = ExtResource("1_g5k47")
 
-[node name="Outside" type="CollisionPolygon2D" parent="." unique_id=2117627907]
-position = Vector2(7.5645905, 5.612102)
-rotation = 0.07328512
-scale = Vector2(1.297307, 1.4339508)
-polygon = PackedVector2Array(66, -108, 146, -98, 203, -82, 261, -50, 264, -29, 246, -24, 240, -16, 262, -18, 271, -9, 254, 19, 172, 65, 66, 87, 29, 125, -6, 129, 9, 94, -81, 85, -110, 110, -143, 116, -167, 112, -145, 85, -145, 65, -203, 44, -223, 54, -255, 97, -320, 122, -293, 48, -300, -9, -341, -70, -284, -59, -228, -18, -133, -63, -103, -94, -99, -126, -61, -120, -4, -101)
+[node name="hitbox" type="CollisionPolygon2D" parent="." unique_id=1868230910]
+position = Vector2(-38.278156, -7.818188)
+rotation = -3.0662007
+scale = Vector2(2.9597318, -3.2383573)
+skew = -0.0003824234
+polygon = PackedVector2Array(19, -55.6, 19, -54.4, 9.800003, -52.5, 5.800003, -52.5, -13, -45.199997, -26.900002, -46.5, -59.1, -46.5, -73.2, -43.5, -78.2, -43.5, -90, -39.5, -94.2, -39.5, -106.2, -34.5, -109.4, -34.5, -111.4, -32.5, -114.3, -32.5, -125.3, -26.5, -127.4, -26.5, -132.4, -21.5, -133.8, -21.5, -134.9, -15.5, -136.6, -15.5, -135, -12.300003, -135, -9.099998, -132.4, -6.5, -132, -6.0999985, -136, -4.0999985, -136, 2.800003, -133, 6.800003, -133, 9, -126, 14, -126, 15.5, -123.4, 15.5, -123, 15.899994, -123, 17.100006, -109, 25.100006, -109, 26.199997, -99, 30.100006, -99, 31.199997, -82, 36.199997, -82, 37.300003, -51.1, 43.5, -45.4, 43.5, -44, 44.899994, -44, 47, -41, 49, -41, 51, -34, 57, -34, 58.199997, -27, 61.100006, -27, 62.5, -24, 62.5, -24, 63.5, -12.300003, 63.5, -11.300003, 60.5, -10.399994, 60.5, -9.800003, 59.399994, -18, 48.100006, -18, 45.5, 6.100006, 45.5, 17.300003, 42.5, 19.600006, 42.5, 26, 48.899994, 26, 50.100006, 35, 54.100006, 35, 55.399994, 42, 56.300003, 42, 57.600006, 54.100006, 56.5, 57.399994, 56.5, 61, 52.899994, 61, 51.100006, 53.5, 42.5, 52.699997, 42.5, 49, 33.300003, 59, 29.199997, 59, 28.300003, 68, 26.300003, 68, 25.600006, 77, 26.5, 78.5, 26.5, 87, 37.800003, 87, 40, 94, 46, 94, 47.100006, 108, 54.100006, 108, 55.199997, 120.79999, 59.5, 128.29999, 59.5, 127, 54.300003, 127, 51.300003, 116, 27.300003, 116, 8.699997, 118, 4.699997, 118, 1.800003, 121, -2.199997, 121, -5.0999985, 121.399994, -5.5, 122.600006, -5.5, 124, -8.300003, 124, -10.199997, 132, -20.099998, 132, -22.099998, 137, -27.099998, 137, -31.5, 125.79999, -31.5, 115, -27.5, 111.600006, -27.5, 109.600006, -25.5, 106.70001, -25.5, 97.7, -19.5, 95.399994, -19.5, 94.399994, -17.5, 92.600006, -17.5, 88, -12.900002, 86.600006, -12.5, 82.600006, -8.5, 80.2, -8.5, 46.199997, -25.5, 44.5, -25.5, 37.5, -33.5, 36.699997, -33.5, 35.699997, -36.5, 34.600006, -36.5, 31, -46.5, 31, -54.4)
 
 [node name="Fish" type="Sprite2D" parent="." unique_id=711458133]
 light_mask = 2
@@ -119,6 +142,15 @@ texture = ExtResource("5_pb85f")
 [node name="Sprite2D" type="Sprite2D" parent="Boundaries/InsideBackground/Parallax2D3" unique_id=1949696305]
 position = Vector2(62, -64)
 texture = ExtResource("3_l0cdu")
+
+[node name="inside_water" type="Polygon2D" parent="Boundaries/InsideBackground" unique_id=666842777]
+material = SubResource("ShaderMaterial_k2b2u")
+position = Vector2(-24, -280)
+texture = ExtResource("10_gfngk")
+texture_offset = Vector2(0, 107.13)
+texture_scale = Vector2(0.155, 1)
+polygon = PackedVector2Array(-448, 128, 384, 128, 384, 416, -448, 416)
+uv = PackedVector2Array(-448, 128, 384, 128, 384, 416, -448, 416)
 
 [node name="Inside1" type="StaticBody2D" parent="Boundaries" unique_id=35362935]
 collision_layer = 2
@@ -158,7 +190,7 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_u8shy")
 
 [node name="Lamp" type="Node2D" parent="Cockpit" unique_id=1453307890]
-position = Vector2(38, -30)
+position = Vector2(63, -110)
 scale = Vector2(4, 4)
 metadata/_edit_group_ = true
 
@@ -232,6 +264,8 @@ position = Vector2(73, 89)
 [node name="lights" type="Node2D" parent="Objects" unique_id=773384806]
 script = ExtResource("15_rmov0")
 base_color = Color(0.585062, 0.585062, 0.5850621, 1)
+normal_lights = SubResource("Curve_rmov0")
+angry_lights = SubResource("Curve_gfngk")
 
 [node name="Light" parent="Objects/lights" unique_id=204364832 instance=ExtResource("14_582ut")]
 position = Vector2(30, 91)
@@ -275,6 +309,3 @@ rotation = -9.427094
 [node name="Light12" parent="Objects/lights" unique_id=2122252391 instance=ExtResource("14_582ut")]
 position = Vector2(227.99998, -73)
 rotation = -11.004557
-
-[node name="Player" parent="." unique_id=1364299286 instance=ExtResource("7_gc5cj")]
-position = Vector2(-339, 37)
