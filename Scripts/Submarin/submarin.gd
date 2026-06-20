@@ -3,7 +3,7 @@ extends CharacterBody2D
 var direction: Vector2 = Vector2(1.0, 0.0)
 var speed: float = 0.0
 
-var health: float = 1
+var health: float = 100
 
 func _ready() -> void:
 	pass
