@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bmo1ga6g4seyk"]
 
 [ext_resource type="Script" uid="uid://dkobwvkyhjshb" path="res://Scripts/Submarin/submarin.gd" id="1_g5k47"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_u88h8"]
 [ext_resource type="Texture2D" uid="uid://cvp2khn864x1t" path="res://Assets/Salmon.png" id="2_tc5bk"]
 [ext_resource type="Texture2D" uid="uid://bdoeqlon4505q" path="res://Assets/Submarine/5.png" id="3_l0cdu"]
 [ext_resource type="Script" uid="uid://bpsumhoevejbv" path="res://Scripts/Submarin/motor.gd" id="3_wmfhu"]
@@ -14,6 +13,24 @@
 [ext_resource type="Texture2D" uid="uid://ch7ux53gvdm68" path="res://Assets/Objects/Pointer1.png" id="10_pb85f"]
 [ext_resource type="PackedScene" uid="uid://dsxs6o3qwpxl" path="res://Scenes/Objects/Estinguisher.tscn" id="12_vguhp"]
 [ext_resource type="PackedScene" uid="uid://dnea2oqv3p0e6" path="res://Scenes/Objects/Mop.tscn" id="12_y47bk"]
+
+[sub_resource type="Gradient" id="Gradient_mxo5y"]
+offsets = PackedFloat32Array(0.25301206, 0.8493976)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l0cdu"]
+gradient = SubResource("Gradient_mxo5y")
+width = 400
+height = 400
+fill = 1
+fill_from = Vector2(0.46086955, 0.46521738)
+fill_to = Vector2(0.13478261, 0.13478261)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tc5bk"]
+polygon = PackedVector2Array(-366, -48, -366, 68, -300, 68, -300, 31, 11, 31, 11, 69, -18, 69, -18, 39, -110, 39, -110, 102, 230, 102, 230, 28, 107, 28, 107, 70, 86, 70, 86, 55, 46, 55, 46, -42, 214, -42, 214, -17, 299, -17, 299, -72, 247, -87, 217, -84, 217, -71, 46, -71, 46, -117, -117, -117, -118, -62, -206, -62, -206, -40, -301, -40, -301, -48, -304, -45, -304, -37, -203, -37, -203, -59, -114, -59, -114, -113, 42, -113, 42, -67, 221, -67, 221, -79, 247, -82, 295, -69, 295, -21, 219, -21, 219, -46, 42, -46, 42, 59, 82, 59, 82, 74, 111, 74, 111, 32, 225, 32, 225, 98, -106, 98, -106, 43, -22, 43, -21, 72, 14, 72, 14, 27, -304, 27, -304, 65, -362, 65, -362, -45, -304, -45, -301, -48)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0qqje"]
+polygon = PackedVector2Array(-304, -13, -304, 4, 14, 4, 14, -35, -177, -35, -177, -13)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pb85f"]
 atlas = ExtResource("8_l0cdu")
@@ -51,6 +68,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mxo5y"]
+polygon = PackedVector2Array(-1.5, -4, 5, -8.5, -2.25, 0, -0.5, 1.75, 9.25, -2.25, 0.75, 3, -2.25, 2.25, -3.25, 0.5, -3, -2.75)
+
+[sub_resource type="Gradient" id="Gradient_l0cdu"]
+offsets = PackedFloat32Array(0.25301206, 0.8493976)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pb85f"]
+gradient = SubResource("Gradient_l0cdu")
+width = 400
+height = 400
+fill = 1
+fill_from = Vector2(0.46086955, 0.46521738)
+fill_to = Vector2(0.13478261, 0.13478261)
+
 [node name="Submarin" type="CharacterBody2D" unique_id=1410131224]
 script = ExtResource("1_g5k47")
 
@@ -61,6 +93,8 @@ scale = Vector2(1.297307, 1.4339508)
 polygon = PackedVector2Array(66, -108, 146, -98, 203, -82, 261, -50, 264, -29, 246, -24, 240, -16, 262, -18, 271, -9, 254, 19, 172, 65, 66, 87, 29, 125, -6, 129, 9, 94, -81, 85, -110, 110, -143, 116, -167, 112, -145, 85, -145, 65, -203, 44, -223, 54, -255, 97, -320, 122, -293, 48, -300, -9, -341, -70, -284, -59, -228, -18, -133, -63, -103, -94, -99, -126, -61, -120, -4, -101)
 
 [node name="Fish" type="Sprite2D" parent="." unique_id=711458133]
+light_mask = 2
+visibility_layer = 2
 position = Vector2(-38.278156, -7.818188)
 rotation = -3.0662007
 scale = Vector2(2.959732, -3.2383573)
@@ -91,6 +125,14 @@ texture = ExtResource("4_pb85f")
 position = Vector2(62, -64)
 texture = ExtResource("3_l0cdu")
 
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=903326679]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-263, 14)
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_l0cdu")
+
 [node name="Inside1" type="StaticBody2D" parent="." unique_id=35362935]
 collision_layer = 2
 collision_mask = 2
@@ -98,12 +140,24 @@ collision_mask = 2
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Inside1" unique_id=346248802]
 polygon = PackedVector2Array(-366, -48, -366, 68, -300, 68, -300, 31, 11, 31, 11, 69, -18, 69, -18, 39, -110, 39, -110, 102, 230, 102, 230, 28, 107, 28, 107, 70, 86, 70, 86, 55, 46, 55, 46, -42, 214, -42, 214, -17, 299, -17, 299, -72, 247, -87, 217, -84, 217, -71, 46, -71, 46, -117, -117, -117, -118, -62, -206, -62, -206, -40, -301, -40, -301, -48, -304, -45, -304, -37, -203, -37, -203, -59, -114, -59, -114, -113, 42, -113, 42, -67, 221, -67, 221, -79, 247, -82, 295, -69, 295, -21, 219, -21, 219, -46, 42, -46, 42, 59, 82, 59, 82, 74, 111, 74, 111, 32, 225, 32, 225, 98, -106, 98, -106, 43, -22, 43, -21, 72, 14, 72, 14, 27, -304, 27, -304, 65, -362, 65, -362, -45, -304, -45, -301, -48)
 
+[node name="Occlusion" type="LightOccluder2D" parent="Inside1" unique_id=493409381]
+light_mask = 2
+visibility_layer = 2
+occluder = SubResource("OccluderPolygon2D_tc5bk")
+occluder_light_mask = 2
+
 [node name="Inside2" type="StaticBody2D" parent="." unique_id=869312950]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Inside2" unique_id=652806430]
 polygon = PackedVector2Array(-304, -13, -304, 4, 14, 4, 14, -35, -177, -35, -177, -13)
+
+[node name="Occlusion" type="LightOccluder2D" parent="Inside2" unique_id=67624032]
+light_mask = 2
+visibility_layer = 2
+occluder = SubResource("OccluderPolygon2D_0qqje")
+occluder_light_mask = 2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1950995903]
 position = Vector2(91, 0)
@@ -119,18 +173,8 @@ sprite_frames = SubResource("SpriteFrames_u8shy")
 [node name="Storage" type="Node2D" parent="." unique_id=1189706939]
 position = Vector2(93, 63)
 
-[node name="Sprite2D" type="Sprite2D" parent="Storage" unique_id=115412148]
-position = Vector2(-155.8125, 12.875001)
-scale = Vector2(0.54394543, 0.35742188)
-texture = ExtResource("1_u88h8")
-
 [node name="Pump" type="Node2D" parent="." unique_id=1203484049]
 position = Vector2(186, 126)
-
-[node name="Sprite2D" type="Sprite2D" parent="Pump" unique_id=1839854943]
-position = Vector2(-138, -36)
-scale = Vector2(0.328125, 0.12500003)
-texture = ExtResource("1_u88h8")
 
 [node name="Motor" type="Node2D" parent="." unique_id=285889259]
 position = Vector2(-211, 10)
@@ -169,11 +213,6 @@ sprite_frames = SubResource("SpriteFrames_u8shy")
 [node name="Fuel" type="Node2D" parent="." unique_id=573572712]
 position = Vector2(317, 117)
 
-[node name="Sprite2D" type="Sprite2D" parent="Fuel" unique_id=1218654605]
-position = Vector2(-116.999985, -39)
-scale = Vector2(0.39062518, 0.31250003)
-texture = ExtResource("1_u88h8")
-
 [node name="Objects" type="Node2D" parent="." unique_id=1757655380]
 
 [node name="Mop" parent="Objects" unique_id=2053221755 instance=ExtResource("12_y47bk")]
@@ -193,4 +232,16 @@ texture = ExtResource("10_pb85f")
 position = Vector2(73, 89)
 
 [node name="Player" parent="." unique_id=1364299286 instance=ExtResource("6_gc5cj")]
-position = Vector2(-103, -52)
+position = Vector2(-339, 37)
+
+[node name="Lamp" type="Node2D" parent="." unique_id=1453307890]
+position = Vector2(303, -80)
+scale = Vector2(4, 4)
+metadata/_edit_group_ = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Lamp" unique_id=1595135461]
+occluder = SubResource("OccluderPolygon2D_mxo5y")
+
+[node name="PointLight2D" type="PointLight2D" parent="Lamp" unique_id=148700194]
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_pb85f")
