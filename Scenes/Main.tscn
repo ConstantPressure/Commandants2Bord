@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://155xx7s6y6ta"]
 
-[ext_resource type="PackedScene" uid="uid://bmo1ga6g4seyk" path="res://Scenes/Submarin/Submarin.tscn" id="1_r150o"]
+[ext_resource type="PackedScene" uid="uid://bmo1ga6g4seyk" path="res://Scenes/Submarin.tscn" id="1_r150o"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_idj7w"]
 
 [node name="Main" type="Node2D" unique_id=1919346275]
