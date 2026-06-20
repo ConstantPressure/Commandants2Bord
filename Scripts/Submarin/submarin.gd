@@ -13,4 +13,5 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func _process(_delta: float) -> void:
-	pass
+	if health < 0:
+		print("GAME OVER")

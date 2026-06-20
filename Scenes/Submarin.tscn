@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://cdhymep0fqo63" path="res://Assets/Objects/Screen2.png" id="8_l0cdu"]
 [ext_resource type="Texture2D" uid="uid://ba34cyhn1mrjb" path="res://Assets/Objects/Pointer2.png" id="9_vguhp"]
 [ext_resource type="Texture2D" uid="uid://ch7ux53gvdm68" path="res://Assets/Objects/Pointer1.png" id="10_pb85f"]
+[ext_resource type="Script" uid="uid://dfbh11dq23cm5" path="res://Scripts/Submarin/cockpit.gd" id="11_8eoxr"]
+[ext_resource type="Texture2D" uid="uid://bna8by4cm04hb" path="res://Assets/cone.png" id="12_gfngk"]
 [ext_resource type="PackedScene" uid="uid://dsxs6o3qwpxl" path="res://Scenes/Objects/Estinguisher.tscn" id="12_vguhp"]
 [ext_resource type="PackedScene" uid="uid://dnea2oqv3p0e6" path="res://Scenes/Objects/Mop.tscn" id="13_y47bk"]
 [ext_resource type="PackedScene" uid="uid://cue33n2bnd2l5" path="res://Scenes/Objects/Light.tscn" id="14_582ut"]
@@ -57,21 +59,6 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mxo5y"]
-polygon = PackedVector2Array(-1.5, -4, 5, -8.5, -2.25, 0, -0.5, 1.75, 9.25, -2.25, 0.75, 3, -2.25, 2.25, -3.25, 0.5, -3, -2.75)
-
-[sub_resource type="Gradient" id="Gradient_l0cdu"]
-offsets = PackedFloat32Array(0.25301206, 0.8493976)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_pb85f"]
-gradient = SubResource("Gradient_l0cdu")
-width = 400
-height = 400
-fill = 1
-fill_from = Vector2(0.46086955, 0.46521738)
-fill_to = Vector2(0.13478261, 0.13478261)
 
 [node name="Submarin" type="CharacterBody2D" unique_id=1410131224]
 script = ExtResource("1_g5k47")
@@ -146,85 +133,7 @@ occluder_light_mask = 2
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1950995903]
 position = Vector2(91, 0)
 
-[node name="Cockpit" type="Node2D" parent="." unique_id=678127452]
-position = Vector2(265, -50)
-
-[node name="Monitor1" type="AnimatedSprite2D" parent="Cockpit" unique_id=979984237]
-position = Vector2(12, 18)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_u8shy")
-
-[node name="Lamp" type="Node2D" parent="Cockpit" unique_id=1453307890]
-position = Vector2(38, -30)
-scale = Vector2(4, 4)
-metadata/_edit_group_ = true
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Cockpit/Lamp" unique_id=1595135461]
-occluder = SubResource("OccluderPolygon2D_mxo5y")
-
-[node name="PointLight2D" type="PointLight2D" parent="Cockpit/Lamp" unique_id=148700194]
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_pb85f")
-
-[node name="Storage" type="Node2D" parent="." unique_id=1189706939]
-position = Vector2(93, 63)
-
-[node name="Pump" type="Node2D" parent="." unique_id=1203484049]
-position = Vector2(186, 126)
-
-[node name="Motor" type="Node2D" parent="." unique_id=285889259]
-position = Vector2(-211, 10)
-script = ExtResource("3_wmfhu")
-
-[node name="Lever" parent="Motor" unique_id=1807663171 instance=ExtResource("6_0qqje")]
-position = Vector2(-121, 51)
-scale = Vector2(0.5, 0.5)
-lever_rotation_speed_update_speed = 0.4
-
-[node name="Fins" type="Node2D" parent="." unique_id=1091621099]
-position = Vector2(-111, -120)
-script = ExtResource("4_gc5cj")
-
-[node name="Lever" parent="Fins" unique_id=770815668 instance=ExtResource("6_0qqje")]
-position = Vector2(40, 82)
-scale = Vector2(0.5, 0.5)
-link_name = "Lever2"
-
-[node name="Lever2" parent="Fins" unique_id=1017698945 instance=ExtResource("6_0qqje")]
-position = Vector2(92, 82)
-scale = Vector2(0.5, 0.5)
-link_name = "Lever"
-
-[node name="Monitor1" type="AnimatedSprite2D" parent="Fins" unique_id=1127416174]
-position = Vector2(55, 75)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_u8shy")
-
-[node name="Monitor2" type="AnimatedSprite2D" parent="Fins" unique_id=559073929]
-position = Vector2(78, 75)
-scale = Vector2(-0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_u8shy")
-
-[node name="Fuel" type="Node2D" parent="." unique_id=573572712]
-position = Vector2(317, 117)
-
 [node name="Objects" type="Node2D" parent="." unique_id=1757655380]
-
-[node name="Mop" parent="Objects" unique_id=2053221755 instance=ExtResource("13_y47bk")]
-position = Vector2(-99, 89)
-
-[node name="Pointer2" type="Sprite2D" parent="Objects" unique_id=2094637100]
-position = Vector2(-203, -21)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_vguhp")
-
-[node name="Pointer1" type="Sprite2D" parent="Objects" unique_id=1091622596]
-position = Vector2(119, 90)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("10_pb85f")
-
-[node name="Estinguisher" parent="Objects" unique_id=303774454 instance=ExtResource("12_vguhp")]
-position = Vector2(73, 89)
 
 [node name="lights" type="Node2D" parent="Objects" unique_id=773384806]
 script = ExtResource("15_rmov0")
@@ -272,6 +181,72 @@ rotation = -9.427094
 [node name="Light12" parent="Objects/lights" unique_id=2122252391 instance=ExtResource("14_582ut")]
 position = Vector2(227.99998, -73)
 rotation = -11.004557
+
+[node name="Mop" parent="Objects" unique_id=2053221755 instance=ExtResource("13_y47bk")]
+position = Vector2(-99, 89)
+
+[node name="Pointer2" type="Sprite2D" parent="Objects" unique_id=2094637100]
+position = Vector2(-203, -21)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_vguhp")
+
+[node name="Pointer1" type="Sprite2D" parent="Objects" unique_id=1091622596]
+position = Vector2(119, 90)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_pb85f")
+
+[node name="Estinguisher" parent="Objects" unique_id=303774454 instance=ExtResource("12_vguhp")]
+position = Vector2(73, 89)
+
+[node name="Cockpit" type="Node2D" parent="." unique_id=678127452]
+position = Vector2(265, -50)
+script = ExtResource("11_8eoxr")
+
+[node name="Aimer" type="Node2D" parent="Cockpit" unique_id=1069295045]
+
+[node name="Lamp" type="PointLight2D" parent="Cockpit/Aimer" unique_id=1794561351]
+position = Vector2(261, -139)
+rotation = -2.046987
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("12_gfngk")
+
+[node name="Monitor1" type="AnimatedSprite2D" parent="Cockpit" unique_id=979984237]
+position = Vector2(12, 18)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_u8shy")
+
+[node name="Motor" type="Node2D" parent="." unique_id=285889259]
+position = Vector2(-211, 10)
+script = ExtResource("3_wmfhu")
+
+[node name="Lever" parent="Motor" unique_id=1807663171 instance=ExtResource("6_0qqje")]
+position = Vector2(-121, 51)
+scale = Vector2(0.5, 0.5)
+lever_rotation_speed_update_speed = 0.4
+
+[node name="Fins" type="Node2D" parent="." unique_id=1091621099]
+position = Vector2(-111, -120)
+script = ExtResource("4_gc5cj")
+
+[node name="Lever" parent="Fins" unique_id=770815668 instance=ExtResource("6_0qqje")]
+position = Vector2(40, 82)
+scale = Vector2(0.5, 0.5)
+link_name = "Lever2"
+
+[node name="Lever2" parent="Fins" unique_id=1017698945 instance=ExtResource("6_0qqje")]
+position = Vector2(92, 82)
+scale = Vector2(0.5, 0.5)
+link_name = "Lever"
+
+[node name="Monitor1" type="AnimatedSprite2D" parent="Fins" unique_id=1127416174]
+position = Vector2(55, 75)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_u8shy")
+
+[node name="Monitor2" type="AnimatedSprite2D" parent="Fins" unique_id=559073929]
+position = Vector2(78, 75)
+scale = Vector2(-0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_u8shy")
 
 [node name="Player" parent="." unique_id=1364299286 instance=ExtResource("7_gc5cj")]
 position = Vector2(-339, 37)
