@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dsxs6o3qwpxl"]
+
+[ext_resource type="Texture2D" uid="uid://bj4paics7e0fa" path="res://Assets/Objects/Fire-extinguisher1.png" id="1_kuj3u"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mhoia"]
+
+[node name="Estinguisher" type="Node2D" unique_id=554787621]
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1763262821]
+texture = ExtResource("1_kuj3u")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1311740427]
+collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_mhoia")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D" unique_id=35781784]
+polygon = PackedVector2Array(2, -3, 2, -2, 1, -2, 1, -1, -5, -1, -5, 0, -6, 0, -6, 1, -7, 1, -7, 4, -6, 4, -6, 5, -5, 5, -5, 4, -4, 4, -4, 2, -2, 2, -2, 3, -3, 3, -3, 17, -2, 17, -2, 18, 4, 18, 4, 17, 5, 17, 5, 3, 4, 3, 4, 2, 5, 2, 5, 0, 4, 0, 4, -1, 5, -1, 5, -2, 4, -2, 4, -3)

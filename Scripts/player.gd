@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
+@onready var anim: AnimatedSprite2D = $"AnimatedSprite2D"
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 var controlled_utility = null
 
+func _ready() -> void:
+	anim.play("idle")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -16,8 +19,10 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
+		anim.play("move")
 		velocity.x = direction * SPEED
 	else:
+		anim.play("idle")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	if not controlled_utility:
