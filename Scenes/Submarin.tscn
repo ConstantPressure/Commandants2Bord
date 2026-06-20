@@ -35,7 +35,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Inside2" unique_id=652806430]
-polygon = PackedVector2Array(-304, -13, -304, 4, 14, 4, 14, -35, -177, -33, -177, -13)
+polygon = PackedVector2Array(-304, -13, -304, 4, 14, 4, 14, -35, -177, -35, -177, -13)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1950995903]
 position = Vector2(91, 0)
