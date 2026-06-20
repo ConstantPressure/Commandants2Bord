@@ -2,9 +2,8 @@ extends Node2D
 
 @onready var submarin: CharacterBody2D = $".."
 
-var max_speed: float = 10000
-const speed_up: float = 300.0
-const speed_down: float = 80.0
+var max_speed: float = 250
+const speed_up: float = 50.0
 var speed: float = 0
 
 
@@ -18,14 +17,6 @@ func _process(delta: float) -> void:
 		if speed < max_speed:
 			speed += speed_up * delta
 	elif Input.is_action_pressed("test_action4"): # backward
-		if speed > -max_speed:
+		if speed > -max_speed / 2:
 			speed -= speed_up * delta
-	elif speed > 0:
-		speed -= speed_down * delta
-		if speed < 0:
-			speed = 0
-	elif speed < 0:
-		speed += speed_down * delta
-		if speed > 0:
-			speed = 0
 	submarin.speed = speed
