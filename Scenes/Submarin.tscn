@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ch7ux53gvdm68" path="res://Assets/Objects/Pointer1.png" id="10_pb85f"]
 [ext_resource type="PackedScene" uid="uid://dsxs6o3qwpxl" path="res://Scenes/Objects/Estinguisher.tscn" id="12_vguhp"]
 [ext_resource type="PackedScene" uid="uid://dnea2oqv3p0e6" path="res://Scenes/Objects/Mop.tscn" id="12_y47bk"]
+[ext_resource type="PackedScene" uid="uid://cue33n2bnd2l5" path="res://Scenes/Objects/Light.tscn" id="14_582ut"]
 [ext_resource type="Script" uid="uid://dym33vk8njt5q" path="res://Scripts/lights.gd" id="14_rmov0"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tc5bk"]
@@ -72,18 +73,6 @@ fill = 1
 fill_from = Vector2(0.46086955, 0.46521738)
 fill_to = Vector2(0.13478261, 0.13478261)
 
-[sub_resource type="Gradient" id="Gradient_mxo5y"]
-offsets = PackedFloat32Array(0.25301206, 0.8493976)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_l0cdu"]
-gradient = SubResource("Gradient_mxo5y")
-width = 400
-height = 400
-fill = 1
-fill_from = Vector2(0.46086955, 0.46521738)
-fill_to = Vector2(0.13478261, 0.13478261)
-
 [node name="Submarin" type="CharacterBody2D" unique_id=1410131224]
 script = ExtResource("1_g5k47")
 
@@ -102,51 +91,53 @@ scale = Vector2(2.959732, -3.2383573)
 skew = -0.0003824234
 texture = ExtResource("2_tc5bk")
 
-[node name="InsideBackground" type="Polygon2D" parent="." unique_id=1058519907]
+[node name="Boundaries" type="Node2D" parent="." unique_id=1969036629]
+
+[node name="InsideBackground" type="Polygon2D" parent="Boundaries" unique_id=1058519907]
 clip_children = 2
 color = Color(0.58456355, 0.58456355, 0.58456355, 1)
 polygon = PackedVector2Array(-362, -45, -304, -45, -304, -37, -203, -37, -204, -13, -304, -13, -304, 4, 14, 4, 14, -35, -177, -35, -177, -13, -203, -13, -203, -40, -203, -59, -114, -59, -114, -113, 42, -113, 42, -67, 221, -67, 221, -79, 247, -82, 295, -69, 295, -21, 219, -21, 219, -46, 42, -46, 42, 59, 82, 59, 82, 74, 111, 74, 111, 32, 225, 32, 225, 98, -106, 98, -106, 43, -22, 43, -21, 72, 14, 72, 14, 27, -304, 27, -304, 65, -362, 65)
 uv = PackedVector2Array(-291.9906, 50.56828, -233.99062, 50.56828, -233.99062, 58.56828, -132.99063, 58.56828, -132.99063, 36.56828, -43.99063, 36.56828, -43.99063, -17.43172, 112.009384, -17.43172, 112.009384, 28.56828, 291.0094, 28.56828, 291.0094, 16.56828, 317.0094, 13.568279, 365.0094, 26.56828, 365.0094, 74.56828, 289.0094, 74.56828, 289.0094, 49.56828, 112.009384, 49.56828, 112.009384, 154.56828, 152.00938, 154.56828, 152.00938, 169.56828, 181.00938, 169.56828, 181.00938, 127.56828, 295.0094, 127.56828, 295.0094, 193.56828, -35.99063, 193.56828, -35.99063, 138.56828, 48.00937, 138.56828, 49.00937, 167.56828, 84.00937, 167.56828, 84.00937, 122.56828, -233.99062, 122.56828, -233.99062, 160.56828, -291.9906, 160.56828)
 
-[node name="Parallax2D" type="Parallax2D" parent="InsideBackground" unique_id=451695352]
+[node name="Parallax2D" type="Parallax2D" parent="Boundaries/InsideBackground" unique_id=451695352]
 
-[node name="Sprite2D" type="Sprite2D" parent="InsideBackground/Parallax2D" unique_id=379450989]
+[node name="Sprite2D" type="Sprite2D" parent="Boundaries/InsideBackground/Parallax2D" unique_id=379450989]
 position = Vector2(-73, -64)
 texture = ExtResource("3_l0cdu")
 
-[node name="Parallax2D2" type="Parallax2D" parent="InsideBackground" unique_id=908285128]
+[node name="Parallax2D2" type="Parallax2D" parent="Boundaries/InsideBackground" unique_id=908285128]
 
-[node name="Sprite2D" type="Sprite2D" parent="InsideBackground/Parallax2D2" unique_id=617706546]
+[node name="Sprite2D" type="Sprite2D" parent="Boundaries/InsideBackground/Parallax2D2" unique_id=617706546]
 position = Vector2(-73, -64)
 texture = ExtResource("4_pb85f")
 
-[node name="Parallax2D3" type="Parallax2D" parent="InsideBackground" unique_id=421416747]
+[node name="Parallax2D3" type="Parallax2D" parent="Boundaries/InsideBackground" unique_id=421416747]
 
-[node name="Sprite2D" type="Sprite2D" parent="InsideBackground/Parallax2D3" unique_id=1949696305]
+[node name="Sprite2D" type="Sprite2D" parent="Boundaries/InsideBackground/Parallax2D3" unique_id=1949696305]
 position = Vector2(62, -64)
 texture = ExtResource("3_l0cdu")
 
-[node name="Inside1" type="StaticBody2D" parent="." unique_id=35362935]
+[node name="Inside1" type="StaticBody2D" parent="Boundaries" unique_id=35362935]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Inside1" unique_id=346248802]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundaries/Inside1" unique_id=346248802]
 polygon = PackedVector2Array(-366, -48, -366, 68, -300, 68, -300, 31, 11, 31, 11, 69, -18, 69, -18, 39, -110, 39, -110, 102, 230, 102, 230, 28, 107, 28, 107, 70, 86, 70, 86, 55, 46, 55, 46, -42, 214, -42, 214, -17, 299, -17, 299, -72, 247, -87, 217, -84, 217, -71, 46, -71, 46, -117, -117, -117, -118, -62, -206, -62, -206, -40, -301, -40, -301, -48, -304, -45, -304, -37, -203, -37, -203, -59, -114, -59, -114, -113, 42, -113, 42, -67, 221, -67, 221, -79, 247, -82, 295, -69, 295, -21, 219, -21, 219, -46, 42, -46, 42, 59, 82, 59, 82, 74, 111, 74, 111, 32, 225, 32, 225, 98, -106, 98, -106, 43, -22, 43, -21, 72, 14, 72, 14, 27, -304, 27, -304, 65, -362, 65, -362, -45, -304, -45, -301, -48)
 
-[node name="Occlusion" type="LightOccluder2D" parent="Inside1" unique_id=493409381]
+[node name="Occlusion" type="LightOccluder2D" parent="Boundaries/Inside1" unique_id=493409381]
 light_mask = 2
 visibility_layer = 2
 occluder = SubResource("OccluderPolygon2D_tc5bk")
 occluder_light_mask = 2
 
-[node name="Inside2" type="StaticBody2D" parent="." unique_id=869312950]
+[node name="Inside2" type="StaticBody2D" parent="Boundaries" unique_id=869312950]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Inside2" unique_id=652806430]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundaries/Inside2" unique_id=652806430]
 polygon = PackedVector2Array(-304, -13, -304, 4, 14, 4, 14, -35, -177, -35, -177, -13)
 
-[node name="Occlusion" type="LightOccluder2D" parent="Inside2" unique_id=67624032]
+[node name="Occlusion" type="LightOccluder2D" parent="Boundaries/Inside2" unique_id=67624032]
 light_mask = 2
 visibility_layer = 2
 occluder = SubResource("OccluderPolygon2D_0qqje")
@@ -162,6 +153,18 @@ position = Vector2(265, -50)
 position = Vector2(12, 18)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_u8shy")
+
+[node name="Lamp" type="Node2D" parent="Cockpit" unique_id=1453307890]
+position = Vector2(38, -30)
+scale = Vector2(4, 4)
+metadata/_edit_group_ = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Cockpit/Lamp" unique_id=1595135461]
+occluder = SubResource("OccluderPolygon2D_mxo5y")
+
+[node name="PointLight2D" type="PointLight2D" parent="Cockpit/Lamp" unique_id=148700194]
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_pb85f")
 
 [node name="Storage" type="Node2D" parent="." unique_id=1189706939]
 position = Vector2(93, 63)
@@ -223,129 +226,52 @@ texture = ExtResource("10_pb85f")
 [node name="Estinguisher" parent="Objects" unique_id=303774454 instance=ExtResource("12_vguhp")]
 position = Vector2(73, 89)
 
+[node name="lights" type="Node2D" parent="Objects" unique_id=773384806]
+script = ExtResource("14_rmov0")
+base_color = Color(0.585062, 0.585062, 0.5850621, 1)
+
+[node name="Light" parent="Objects/lights" unique_id=204364832 instance=ExtResource("14_582ut")]
+position = Vector2(30, 91)
+
+[node name="Light2" parent="Objects/lights" unique_id=1476035124 instance=ExtResource("14_582ut")]
+position = Vector2(-170, -52)
+rotation = -3.1401517
+
+[node name="Light3" parent="Objects/lights" unique_id=1262458723 instance=ExtResource("14_582ut")]
+position = Vector2(-265, -20.000004)
+rotation = -6.2721577
+
+[node name="Light4" parent="Objects/lights" unique_id=2092149511 instance=ExtResource("14_582ut")]
+position = Vector2(-355, 50)
+rotation = -4.700191
+
+[node name="Light5" parent="Objects/lights" unique_id=1765146378 instance=ExtResource("14_582ut")]
+position = Vector2(-228.00002, 20.000002)
+rotation = -6.2742662
+
+[node name="Light6" parent="Objects/lights" unique_id=1956920843 instance=ExtResource("14_582ut")]
+position = Vector2(-56.999996, 10.999998)
+rotation = -9.415804
+
+[node name="Light7" parent="Objects/lights" unique_id=727949245 instance=ExtResource("14_582ut")]
+position = Vector2(-27.999998, 58.999996)
+rotation = -7.844379
+
+[node name="Light8" parent="Objects/lights" unique_id=151236152 instance=ExtResource("14_582ut")]
+position = Vector2(167.99998, 39.000004)
+rotation = -9.427094
+
+[node name="Light9" parent="Objects/lights" unique_id=280700370 instance=ExtResource("14_582ut")]
+position = Vector2(-43.000008, -106.00001)
+rotation = -9.427094
+
+[node name="Light11" parent="Objects/lights" unique_id=291868794 instance=ExtResource("14_582ut")]
+position = Vector2(128, -60.000004)
+rotation = -9.427094
+
+[node name="Light12" parent="Objects/lights" unique_id=2122252391 instance=ExtResource("14_582ut")]
+position = Vector2(227.99998, -73)
+rotation = -11.004557
+
 [node name="Player" parent="." unique_id=1364299286 instance=ExtResource("6_gc5cj")]
 position = Vector2(-339, 37)
-
-[node name="Lamp" type="Node2D" parent="." unique_id=1453307890]
-position = Vector2(303, -80)
-scale = Vector2(4, 4)
-metadata/_edit_group_ = true
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Lamp" unique_id=1595135461]
-occluder = SubResource("OccluderPolygon2D_mxo5y")
-
-[node name="PointLight2D" type="PointLight2D" parent="Lamp" unique_id=148700194]
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_pb85f")
-
-[node name="lights" type="Node2D" parent="." unique_id=773384806]
-script = ExtResource("14_rmov0")
-base_color = Color(0.8, 0.055999994, 0.06839981, 1)
-
-[node name="PointLight2D" type="PointLight2D" parent="lights" unique_id=1904045287]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(-344, -28)
-color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
-shadow_enabled = true
-shadow_item_cull_mask = 3
-texture = SubResource("GradientTexture2D_l0cdu")
-
-[node name="PointLight2D2" type="PointLight2D" parent="lights" unique_id=1838561728]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(-188, -24)
-color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
-shadow_enabled = true
-shadow_item_cull_mask = 3
-texture = SubResource("GradientTexture2D_l0cdu")
-
-[node name="PointLight2D3" type="PointLight2D" parent="lights" unique_id=1396764914]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(-98, -56)
-color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
-shadow_enabled = true
-shadow_item_cull_mask = 3
-texture = SubResource("GradientTexture2D_l0cdu")
-
-[node name="PointLight2D4" type="PointLight2D" parent="lights" unique_id=1347301614]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(-185, 17)
-color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
-shadow_enabled = true
-shadow_item_cull_mask = 3
-texture = SubResource("GradientTexture2D_l0cdu")
-
-[node name="PointLight2D5" type="PointLight2D" parent="lights" unique_id=1264465888]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(21, 19)
-color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
-shadow_enabled = true
-shadow_item_cull_mask = 3
-texture = SubResource("GradientTexture2D_l0cdu")
-
-[node name="PointLight2D6" type="PointLight2D" parent="lights" unique_id=1488198193]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(-52, 80)
-color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
-shadow_enabled = true
-shadow_item_cull_mask = 3
-texture = SubResource("GradientTexture2D_l0cdu")
-
-[node name="PointLight2D7" type="PointLight2D" parent="lights" unique_id=1334664047]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(196, 43)
-color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
-shadow_enabled = true
-shadow_item_cull_mask = 3
-texture = SubResource("GradientTexture2D_l0cdu")
-
-[node name="PointLight2D9" type="PointLight2D" parent="lights" unique_id=1573471065]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(71, 63)
-color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
-shadow_enabled = true
-shadow_item_cull_mask = 3
-texture = SubResource("GradientTexture2D_l0cdu")
-
-[node name="PointLight2D8" type="PointLight2D" parent="lights" unique_id=993264853]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(-83, 51)
-color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
-shadow_enabled = true
-shadow_item_cull_mask = 3
-texture = SubResource("GradientTexture2D_l0cdu")
-
-[node name="PointLight2D10" type="PointLight2D" parent="lights" unique_id=688139785]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(114, -53)
-color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
-shadow_enabled = true
-shadow_item_cull_mask = 3
-texture = SubResource("GradientTexture2D_l0cdu")
-
-[node name="PointLight2D11" type="PointLight2D" parent="lights" unique_id=1607271273]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(260, -65)
-color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
-shadow_enabled = true
-shadow_item_cull_mask = 3
-texture = SubResource("GradientTexture2D_l0cdu")
-
-[node name="PointLight2D12" type="PointLight2D" parent="lights" unique_id=1792430907]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(260, -65)
-color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
-shadow_enabled = true
-shadow_item_cull_mask = 3
-texture = SubResource("GradientTexture2D_l0cdu")
