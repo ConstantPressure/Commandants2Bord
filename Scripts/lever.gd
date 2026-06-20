@@ -2,6 +2,7 @@ extends Area2D
 
 var lever_rotation := 0.0
 var lever_target_rotation := 0.0
+var prefix: String = ""
 
 @export var lever_rotation_speed_update_speed := 0.6
 @export var link_name: String
@@ -23,12 +24,12 @@ func _process(delta: float) -> void:
 	)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action("ui_right"):
+	if event.is_action_pressed(prefix + "right"):
 		if event.is_pressed():
 			lever_target_rotation = 1
 		if not event.is_pressed() and lever_target_rotation != 0:
 			lever_target_rotation = lever_rotation
-	if event.is_action("ui_left"):
+	if event.is_action_pressed(prefix + "left"):
 		if event.is_pressed():
 			lever_target_rotation = -1
 		if not event.is_pressed() and lever_target_rotation != 0:

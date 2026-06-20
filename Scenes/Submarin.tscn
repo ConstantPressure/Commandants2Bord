@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://bdbgfkq3k13l1" path="res://Scripts/Submarin/fins.gd" id="4_gc5cj"]
 [ext_resource type="Texture2D" uid="uid://bbc3k70pb3rws" path="res://Assets/Submarine/4.png" id="4_pb85f"]
 [ext_resource type="PackedScene" uid="uid://dwl870574drqn" path="res://Scenes/Lever.tscn" id="6_0qqje"]
-[ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://Scenes/Player.tscn" id="6_gc5cj"]
 [ext_resource type="Texture2D" uid="uid://cdhymep0fqo63" path="res://Assets/Objects/Screen2.png" id="8_l0cdu"]
 [ext_resource type="Texture2D" uid="uid://ba34cyhn1mrjb" path="res://Assets/Objects/Pointer2.png" id="9_vguhp"]
 [ext_resource type="Texture2D" uid="uid://ch7ux53gvdm68" path="res://Assets/Objects/Pointer1.png" id="10_pb85f"]
@@ -223,9 +222,6 @@ texture = ExtResource("10_pb85f")
 [node name="Estinguisher" parent="Objects" unique_id=303774454 instance=ExtResource("12_vguhp")]
 position = Vector2(73, 89)
 
-[node name="Player" parent="." unique_id=1364299286 instance=ExtResource("6_gc5cj")]
-position = Vector2(-339, 37)
-
 [node name="Lamp" type="Node2D" parent="." unique_id=1453307890]
 position = Vector2(303, -80)
 scale = Vector2(4, 4)
@@ -246,7 +242,7 @@ base_color = Color(0.8, 0.055999994, 0.06839981, 1)
 light_mask = 2
 visibility_layer = 2
 position = Vector2(-344, -28)
-color = Color(0.71410966, 0.04998767, 0.061056204, 0.8926371)
+color = Color(0.69306415, 0.048514485, 0.059256822, 0.8663302)
 shadow_enabled = true
 shadow_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_l0cdu")
@@ -255,7 +251,7 @@ texture = SubResource("GradientTexture2D_l0cdu")
 light_mask = 2
 visibility_layer = 2
 position = Vector2(-188, -24)
-color = Color(0.71410966, 0.04998767, 0.061056204, 0.8926371)
+color = Color(0.69306415, 0.048514485, 0.059256822, 0.8663302)
 shadow_enabled = true
 shadow_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_l0cdu")
@@ -264,7 +260,7 @@ texture = SubResource("GradientTexture2D_l0cdu")
 light_mask = 2
 visibility_layer = 2
 position = Vector2(-98, -56)
-color = Color(0.71410966, 0.04998767, 0.061056204, 0.8926371)
+color = Color(0.69306415, 0.048514485, 0.059256822, 0.8663302)
 shadow_enabled = true
 shadow_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_l0cdu")
@@ -273,7 +269,7 @@ texture = SubResource("GradientTexture2D_l0cdu")
 light_mask = 2
 visibility_layer = 2
 position = Vector2(-185, 17)
-color = Color(0.71410966, 0.04998767, 0.061056204, 0.8926371)
+color = Color(0.69306415, 0.048514485, 0.059256822, 0.8663302)
 shadow_enabled = true
 shadow_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_l0cdu")
@@ -282,7 +278,7 @@ texture = SubResource("GradientTexture2D_l0cdu")
 light_mask = 2
 visibility_layer = 2
 position = Vector2(21, 19)
-color = Color(0.71410966, 0.04998767, 0.061056204, 0.8926371)
+color = Color(0.69306415, 0.048514485, 0.059256822, 0.8663302)
 shadow_enabled = true
 shadow_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_l0cdu")
@@ -291,7 +287,7 @@ texture = SubResource("GradientTexture2D_l0cdu")
 light_mask = 2
 visibility_layer = 2
 position = Vector2(-52, 80)
-color = Color(0.71410966, 0.04998767, 0.061056204, 0.8926371)
+color = Color(0.69306415, 0.048514485, 0.059256822, 0.8663302)
 shadow_enabled = true
 shadow_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_l0cdu")
@@ -300,7 +296,7 @@ texture = SubResource("GradientTexture2D_l0cdu")
 light_mask = 2
 visibility_layer = 2
 position = Vector2(196, 43)
-color = Color(0.71410966, 0.04998767, 0.061056204, 0.8926371)
+color = Color(0.69306415, 0.048514485, 0.059256822, 0.8663302)
 shadow_enabled = true
 shadow_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_l0cdu")
@@ -309,7 +305,7 @@ texture = SubResource("GradientTexture2D_l0cdu")
 light_mask = 2
 visibility_layer = 2
 position = Vector2(71, 63)
-color = Color(0.71410966, 0.04998767, 0.061056204, 0.8926371)
+color = Color(0.69306415, 0.048514485, 0.059256822, 0.8663302)
 shadow_enabled = true
 shadow_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_l0cdu")
@@ -318,7 +314,7 @@ texture = SubResource("GradientTexture2D_l0cdu")
 light_mask = 2
 visibility_layer = 2
 position = Vector2(-83, 51)
-color = Color(0.71410966, 0.04998767, 0.061056204, 0.8926371)
+color = Color(0.69306415, 0.048514485, 0.059256822, 0.8663302)
 shadow_enabled = true
 shadow_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_l0cdu")
@@ -327,7 +323,7 @@ texture = SubResource("GradientTexture2D_l0cdu")
 light_mask = 2
 visibility_layer = 2
 position = Vector2(114, -53)
-color = Color(0.71410966, 0.04998767, 0.061056204, 0.8926371)
+color = Color(0.69306415, 0.048514485, 0.059256822, 0.8663302)
 shadow_enabled = true
 shadow_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_l0cdu")
@@ -336,7 +332,7 @@ texture = SubResource("GradientTexture2D_l0cdu")
 light_mask = 2
 visibility_layer = 2
 position = Vector2(260, -65)
-color = Color(0.71410966, 0.04998767, 0.061056204, 0.8926371)
+color = Color(0.69306415, 0.048514485, 0.059256822, 0.8663302)
 shadow_enabled = true
 shadow_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_l0cdu")
@@ -345,7 +341,7 @@ texture = SubResource("GradientTexture2D_l0cdu")
 light_mask = 2
 visibility_layer = 2
 position = Vector2(260, -65)
-color = Color(0.71410966, 0.04998767, 0.061056204, 0.8926371)
+color = Color(0.69306415, 0.048514485, 0.059256822, 0.8663302)
 shadow_enabled = true
 shadow_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_l0cdu")

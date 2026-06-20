@@ -27,9 +27,10 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		anim.play("move")
 		velocity.x = direction * SPEED
+		anim.flip_h = direction < 0
 	else:
 		anim.play("idle")
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = 0
 
 	if not controlled_utility:
 		move_and_slide()
@@ -47,6 +48,8 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action(prefix + "use") and event.is_pressed():
 		controlled_utility = $UtilityDetector.get_closest()
+		if controlled_utility:
+			controlled_utility.prefix = self.prefix
 	
 	if event is InputEventKey:
 		if event.pressed and event.is_action(prefix + "jump") and is_on_floor():
