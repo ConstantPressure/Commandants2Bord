@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://155xx7s6y6ta"]
 
 [ext_resource type="Texture2D" uid="uid://bp4xp5856ypsk" path="res://Assets/Background/Ocean0.png" id="1_kln2b"]
-[ext_resource type="Script" uid="uid://blyusjbdydqg5" path="res://Scripts/main.gd" id="1_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://bmo1ga6g4seyk" path="res://Scenes/Submarin.tscn" id="1_r150o"]
 [ext_resource type="Texture2D" uid="uid://oiqgpwysti5u" path="res://Assets/Background/Ocean1.png" id="2_rgh2o"]
 [ext_resource type="Texture2D" uid="uid://4j4pgq0nhiuj" path="res://Assets/Background/Ocean2.png" id="3_pbw6q"]
@@ -10,7 +9,6 @@
 distance = -701.0
 
 [node name="Main" type="Node2D" unique_id=1919346275]
-script = ExtResource("1_pbw6q")
 
 [node name="Background" type="Node2D" parent="." unique_id=1270695814]
 

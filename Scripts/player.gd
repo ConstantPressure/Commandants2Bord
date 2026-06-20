@@ -55,4 +55,3 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		if event.pressed and event.is_action(prefix + "jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
-	

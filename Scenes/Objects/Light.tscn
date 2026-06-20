@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cue33n2bnd2l5"]
+
+[ext_resource type="Texture2D" uid="uid://dsebrr5pg23xp" path="res://Assets/Objects/32x32_Steampunk_Lamps.png" id="1_3y0nj"]
+
+[sub_resource type="Gradient" id="Gradient_mxo5y"]
+offsets = PackedFloat32Array(0.060240965, 0.1746988, 0.38554215, 0.5903614, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.529067, 0.5290667, 0.5290663, 1, 0.47113994, 0.47113967, 0.47113934, 1, 0.3695215, 0.3695213, 0.36952102, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7u80k"]
+gradient = SubResource("Gradient_mxo5y")
+width = 400
+height = 400
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.13478261, 0.13478261)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8shy"]
+atlas = ExtResource("1_3y0nj")
+region = Rect2(40.45268, 0, 16.230003, 32)
+
+[node name="Light" type="Node2D" unique_id=204364832]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=242259110]
+light_mask = 2
+visibility_layer = 2
+color = Color(0.673227, 0.047125887, 0.05756075, 0.8415338)
+energy = 1.5
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_7u80k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=980047987]
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_u8shy")
