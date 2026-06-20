@@ -4,7 +4,6 @@ var lever_rotation := 0.0
 var lever_target_rotation := 0.0
 
 @export var lever_rotation_speed_update_speed := 0.6
-@export var debug = false
 @export var link_name: String
 @onready var link = get_node("../"+link_name) if link_name else null
 
@@ -13,9 +12,6 @@ func _ready():
 
 func _process(delta: float) -> void:
 	$ColorRect2.rotation = lever_rotation * PI * 0.3
-	
-	if debug:
-		print(lever_target_rotation, lever_rotation, link)
 	
 	if link and link.lever_target_rotation != lever_target_rotation:
 		return

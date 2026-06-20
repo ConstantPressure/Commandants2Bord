@@ -13,18 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ch7ux53gvdm68" path="res://Assets/Objects/Pointer1.png" id="10_pb85f"]
 [ext_resource type="PackedScene" uid="uid://dsxs6o3qwpxl" path="res://Scenes/Objects/Estinguisher.tscn" id="12_vguhp"]
 [ext_resource type="PackedScene" uid="uid://dnea2oqv3p0e6" path="res://Scenes/Objects/Mop.tscn" id="12_y47bk"]
-
-[sub_resource type="Gradient" id="Gradient_mxo5y"]
-offsets = PackedFloat32Array(0.25301206, 0.8493976)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_l0cdu"]
-gradient = SubResource("Gradient_mxo5y")
-width = 400
-height = 400
-fill = 1
-fill_from = Vector2(0.46086955, 0.46521738)
-fill_to = Vector2(0.13478261, 0.13478261)
+[ext_resource type="Script" uid="uid://dym33vk8njt5q" path="res://Scripts/lights.gd" id="14_rmov0"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tc5bk"]
 polygon = PackedVector2Array(-366, -48, -366, 68, -300, 68, -300, 31, 11, 31, 11, 69, -18, 69, -18, 39, -110, 39, -110, 102, 230, 102, 230, 28, 107, 28, 107, 70, 86, 70, 86, 55, 46, 55, 46, -42, 214, -42, 214, -17, 299, -17, 299, -72, 247, -87, 217, -84, 217, -71, 46, -71, 46, -117, -117, -117, -118, -62, -206, -62, -206, -40, -301, -40, -301, -48, -304, -45, -304, -37, -203, -37, -203, -59, -114, -59, -114, -113, 42, -113, 42, -67, 221, -67, 221, -79, 247, -82, 295, -69, 295, -21, 219, -21, 219, -46, 42, -46, 42, 59, 82, 59, 82, 74, 111, 74, 111, 32, 225, 32, 225, 98, -106, 98, -106, 43, -22, 43, -21, 72, 14, 72, 14, 27, -304, 27, -304, 65, -362, 65, -362, -45, -304, -45, -301, -48)
@@ -83,6 +72,18 @@ fill = 1
 fill_from = Vector2(0.46086955, 0.46521738)
 fill_to = Vector2(0.13478261, 0.13478261)
 
+[sub_resource type="Gradient" id="Gradient_mxo5y"]
+offsets = PackedFloat32Array(0.25301206, 0.8493976)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l0cdu"]
+gradient = SubResource("Gradient_mxo5y")
+width = 400
+height = 400
+fill = 1
+fill_from = Vector2(0.46086955, 0.46521738)
+fill_to = Vector2(0.13478261, 0.13478261)
+
 [node name="Submarin" type="CharacterBody2D" unique_id=1410131224]
 script = ExtResource("1_g5k47")
 
@@ -124,14 +125,6 @@ texture = ExtResource("4_pb85f")
 [node name="Sprite2D" type="Sprite2D" parent="InsideBackground/Parallax2D3" unique_id=1949696305]
 position = Vector2(62, -64)
 texture = ExtResource("3_l0cdu")
-
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=903326679]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(-263, 14)
-shadow_enabled = true
-shadow_item_cull_mask = 3
-texture = SubResource("GradientTexture2D_l0cdu")
 
 [node name="Inside1" type="StaticBody2D" parent="." unique_id=35362935]
 collision_layer = 2
@@ -192,7 +185,6 @@ script = ExtResource("4_gc5cj")
 [node name="Lever" parent="Fins" unique_id=770815668 instance=ExtResource("6_0qqje")]
 position = Vector2(40, 82)
 scale = Vector2(0.5, 0.5)
-debug = true
 link_name = "Lever2"
 
 [node name="Lever2" parent="Fins" unique_id=1017698945 instance=ExtResource("6_0qqje")]
@@ -245,3 +237,115 @@ occluder = SubResource("OccluderPolygon2D_mxo5y")
 [node name="PointLight2D" type="PointLight2D" parent="Lamp" unique_id=148700194]
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_pb85f")
+
+[node name="lights" type="Node2D" parent="." unique_id=773384806]
+script = ExtResource("14_rmov0")
+base_color = Color(0.8, 0.055999994, 0.06839981, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="lights" unique_id=1904045287]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-344, -28)
+color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_l0cdu")
+
+[node name="PointLight2D2" type="PointLight2D" parent="lights" unique_id=1838561728]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-188, -24)
+color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_l0cdu")
+
+[node name="PointLight2D3" type="PointLight2D" parent="lights" unique_id=1396764914]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-98, -56)
+color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_l0cdu")
+
+[node name="PointLight2D4" type="PointLight2D" parent="lights" unique_id=1347301614]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-185, 17)
+color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_l0cdu")
+
+[node name="PointLight2D5" type="PointLight2D" parent="lights" unique_id=1264465888]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(21, 19)
+color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_l0cdu")
+
+[node name="PointLight2D6" type="PointLight2D" parent="lights" unique_id=1488198193]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-52, 80)
+color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_l0cdu")
+
+[node name="PointLight2D7" type="PointLight2D" parent="lights" unique_id=1334664047]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(196, 43)
+color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_l0cdu")
+
+[node name="PointLight2D9" type="PointLight2D" parent="lights" unique_id=1573471065]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(71, 63)
+color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_l0cdu")
+
+[node name="PointLight2D8" type="PointLight2D" parent="lights" unique_id=993264853]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-83, 51)
+color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_l0cdu")
+
+[node name="PointLight2D10" type="PointLight2D" parent="lights" unique_id=688139785]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(114, -53)
+color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_l0cdu")
+
+[node name="PointLight2D11" type="PointLight2D" parent="lights" unique_id=1607271273]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(260, -65)
+color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_l0cdu")
+
+[node name="PointLight2D12" type="PointLight2D" parent="lights" unique_id=1792430907]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(260, -65)
+color = Color(0.75744647, 0.053021245, 0.06476149, 0.94680804)
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_l0cdu")
