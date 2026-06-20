@@ -38,17 +38,17 @@ func _input(event: InputEvent) -> void:
 	if controlled_utility:
 		controlled_utility._input(event)
 		
-		if event.is_action("interact") and event.is_pressed():
+		if event.is_action(prefix + "use") and event.is_pressed():
 			if controlled_utility.has_method("exit"):
 				controlled_utility.exit()
 			controlled_utility = null
 		
 		return
 	
-	if event.is_action("interact") and event.is_pressed():
+	if event.is_action(prefix + "use") and event.is_pressed():
 		controlled_utility = $UtilityDetector.get_closest()
 	
 	if event is InputEventKey:
-		if event.pressed and event.is_action("ui_accept") and is_on_floor():
+		if event.pressed and event.is_action(prefix + "jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 	

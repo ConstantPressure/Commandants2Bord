@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_input_changed(device: int, connected: bool) -> void:
+	
 	if connected:
 		for child in submarin.get_children():
 			if child.is_in_group("player") and child.player_id == device + 1:
