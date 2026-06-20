@@ -5,16 +5,16 @@
 [ext_resource type="Texture2D" uid="uid://bdoeqlon4505q" path="res://Assets/Submarine/5.png" id="3_l0cdu"]
 [ext_resource type="Script" uid="uid://bpsumhoevejbv" path="res://Scripts/Submarin/motor.gd" id="3_wmfhu"]
 [ext_resource type="Script" uid="uid://bdbgfkq3k13l1" path="res://Scripts/Submarin/fins.gd" id="4_gc5cj"]
-[ext_resource type="Texture2D" uid="uid://bbc3k70pb3rws" path="res://Assets/Submarine/4.png" id="4_pb85f"]
+[ext_resource type="Texture2D" uid="uid://bbc3k70pb3rws" path="res://Assets/Submarine/4.png" id="5_pb85f"]
 [ext_resource type="PackedScene" uid="uid://dwl870574drqn" path="res://Scenes/Lever.tscn" id="6_0qqje"]
-[ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://Scenes/Player.tscn" id="6_gc5cj"]
+[ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://Scenes/Player.tscn" id="7_gc5cj"]
 [ext_resource type="Texture2D" uid="uid://cdhymep0fqo63" path="res://Assets/Objects/Screen2.png" id="8_l0cdu"]
 [ext_resource type="Texture2D" uid="uid://ba34cyhn1mrjb" path="res://Assets/Objects/Pointer2.png" id="9_vguhp"]
 [ext_resource type="Texture2D" uid="uid://ch7ux53gvdm68" path="res://Assets/Objects/Pointer1.png" id="10_pb85f"]
 [ext_resource type="PackedScene" uid="uid://dsxs6o3qwpxl" path="res://Scenes/Objects/Estinguisher.tscn" id="12_vguhp"]
-[ext_resource type="PackedScene" uid="uid://dnea2oqv3p0e6" path="res://Scenes/Objects/Mop.tscn" id="12_y47bk"]
+[ext_resource type="PackedScene" uid="uid://dnea2oqv3p0e6" path="res://Scenes/Objects/Mop.tscn" id="13_y47bk"]
 [ext_resource type="PackedScene" uid="uid://cue33n2bnd2l5" path="res://Scenes/Objects/Light.tscn" id="14_582ut"]
-[ext_resource type="Script" uid="uid://dym33vk8njt5q" path="res://Scripts/lights.gd" id="14_rmov0"]
+[ext_resource type="Script" uid="uid://dym33vk8njt5q" path="res://Scripts/lights.gd" id="15_rmov0"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tc5bk"]
 polygon = PackedVector2Array(-366, -48, -366, 68, -300, 68, -300, 31, 11, 31, 11, 69, -18, 69, -18, 39, -110, 39, -110, 102, 230, 102, 230, 28, 107, 28, 107, 70, 86, 70, 86, 55, 46, 55, 46, -42, 214, -42, 214, -17, 299, -17, 299, -72, 247, -87, 217, -84, 217, -71, 46, -71, 46, -117, -117, -117, -118, -62, -206, -62, -206, -40, -301, -40, -301, -48, -304, -45, -304, -37, -203, -37, -203, -59, -114, -59, -114, -113, 42, -113, 42, -67, 221, -67, 221, -79, 247, -82, 295, -69, 295, -21, 219, -21, 219, -46, 42, -46, 42, 59, 82, 59, 82, 74, 111, 74, 111, 32, 225, 32, 225, 98, -106, 98, -106, 43, -22, 43, -21, 72, 14, 72, 14, 27, -304, 27, -304, 65, -362, 65, -362, -45, -304, -45, -301, -48)
@@ -109,7 +109,7 @@ texture = ExtResource("3_l0cdu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Boundaries/InsideBackground/Parallax2D2" unique_id=617706546]
 position = Vector2(-73, -64)
-texture = ExtResource("4_pb85f")
+texture = ExtResource("5_pb85f")
 
 [node name="Parallax2D3" type="Parallax2D" parent="Boundaries/InsideBackground" unique_id=421416747]
 
@@ -210,7 +210,7 @@ position = Vector2(317, 117)
 
 [node name="Objects" type="Node2D" parent="." unique_id=1757655380]
 
-[node name="Mop" parent="Objects" unique_id=2053221755 instance=ExtResource("12_y47bk")]
+[node name="Mop" parent="Objects" unique_id=2053221755 instance=ExtResource("13_y47bk")]
 position = Vector2(-99, 89)
 
 [node name="Pointer2" type="Sprite2D" parent="Objects" unique_id=2094637100]
@@ -227,7 +227,7 @@ texture = ExtResource("10_pb85f")
 position = Vector2(73, 89)
 
 [node name="lights" type="Node2D" parent="Objects" unique_id=773384806]
-script = ExtResource("14_rmov0")
+script = ExtResource("15_rmov0")
 base_color = Color(0.585062, 0.585062, 0.5850621, 1)
 
 [node name="Light" parent="Objects/lights" unique_id=204364832 instance=ExtResource("14_582ut")]
@@ -273,5 +273,5 @@ rotation = -9.427094
 position = Vector2(227.99998, -73)
 rotation = -11.004557
 
-[node name="Player" parent="." unique_id=1364299286 instance=ExtResource("6_gc5cj")]
+[node name="Player" parent="." unique_id=1364299286 instance=ExtResource("7_gc5cj")]
 position = Vector2(-339, 37)

@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://be8qbmt0fe144"]
 
 [ext_resource type="Script" uid="uid://c3ubxpp10k6x6" path="res://Scripts/player.gd" id="1_kyqiw"]
-[ext_resource type="Script" uid="uid://bnocmi3ubmrle" path="res://Scripts/utility_detector.gd" id="3_gntrk"]
 [ext_resource type="Texture2D" uid="uid://b7i6sy5326bi7" path="res://Assets/player.png" id="2_kyqiw"]
-
+[ext_resource type="Script" uid="uid://bnocmi3ubmrle" path="res://Scripts/utility_detector.gd" id="3_gntrk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rpqav"]
 radius = 5.0
 height = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kyqiw"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_gntrk"]
 atlas = ExtResource("2_kyqiw")
 region = Rect2(0, 0, 32, 32)
@@ -129,9 +129,10 @@ script = ExtResource("3_gntrk")
 shape = SubResource("CircleShape2D_kyqiw")
 debug_color = Color(0.8117385, 0.3963735, 0.29916215, 0.41960785)
 
-[connection signal="area_entered" from="UtilityDetector" to="UtilityDetector" method="_on_area_entered"]
-[connection signal="area_exited" from="UtilityDetector" to="UtilityDetector" method="_on_area_exited"]
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=285374335]
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_u8shy")
 animation = &"idle"
+
+[connection signal="area_entered" from="UtilityDetector" to="UtilityDetector" method="_on_area_entered"]
+[connection signal="area_exited" from="UtilityDetector" to="UtilityDetector" method="_on_area_exited"]
