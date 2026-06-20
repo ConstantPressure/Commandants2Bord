@@ -34,6 +34,7 @@ func _physics_process(delta: float) -> void:
 
 	if not controlled_utility:
 		move_and_slide()
+	self.global_rotation = 0
 	
 func _input(event: InputEvent) -> void:
 	if controlled_utility:

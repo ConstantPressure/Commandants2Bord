@@ -60,6 +60,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_u8shy"]
+radius = 11.0
+
 [node name="Submarin" type="CharacterBody2D" unique_id=1410131224]
 script = ExtResource("1_g5k47")
 
@@ -198,7 +201,7 @@ texture = ExtResource("10_pb85f")
 [node name="Estinguisher" parent="Objects" unique_id=303774454 instance=ExtResource("12_vguhp")]
 position = Vector2(73, 89)
 
-[node name="Cockpit" type="Node2D" parent="." unique_id=678127452]
+[node name="Cockpit" type="Area2D" parent="." unique_id=1831207646 groups=["utility"]]
 position = Vector2(265, -50)
 script = ExtResource("11_8eoxr")
 
@@ -214,6 +217,10 @@ texture = ExtResource("12_gfngk")
 position = Vector2(12, 18)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_u8shy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cockpit" unique_id=2020901538]
+position = Vector2(7, 19)
+shape = SubResource("CircleShape2D_u8shy")
 
 [node name="Motor" type="Node2D" parent="." unique_id=285889259]
 position = Vector2(-211, 10)
