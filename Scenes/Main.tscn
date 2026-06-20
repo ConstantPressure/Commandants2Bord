@@ -1,68 +1,50 @@
 [gd_scene format=3 uid="uid://155xx7s6y6ta"]
 
+[ext_resource type="Texture2D" uid="uid://bp4xp5856ypsk" path="res://Assets/Background/Ocean0.png" id="1_kln2b"]
 [ext_resource type="PackedScene" uid="uid://bmo1ga6g4seyk" path="res://Scenes/Submarin.tscn" id="1_r150o"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_idj7w"]
+[ext_resource type="Texture2D" uid="uid://oiqgpwysti5u" path="res://Assets/Background/Ocean1.png" id="2_rgh2o"]
+[ext_resource type="Texture2D" uid="uid://4j4pgq0nhiuj" path="res://Assets/Background/Ocean2.png" id="3_pbw6q"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgh2o"]
+distance = -701.0
 
 [node name="Main" type="Node2D" unique_id=1919346275]
 
+[node name="Background" type="Node2D" parent="." unique_id=1270695814]
+
+[node name="Sea" type="Parallax2D" parent="Background" unique_id=1180937118]
+scale = Vector2(3, 3)
+scroll_scale = Vector2(0.4, 0.4)
+repeat_size = Vector2(256, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Sea" unique_id=1889393223]
+position = Vector2(25.333332, -121.33333)
+texture = ExtResource("1_kln2b")
+
+[node name="Boat" type="Parallax2D" parent="Background" unique_id=652457656]
+scale = Vector2(3, 3)
+scroll_scale = Vector2(0.6, 0.6)
+repeat_size = Vector2(950, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Boat" unique_id=794935146]
+position = Vector2(111, 86.6)
+texture = ExtResource("2_rgh2o")
+
+[node name="Rock" type="Parallax2D" parent="Background" unique_id=490703333]
+scale = Vector2(3, 3)
+scroll_scale = Vector2(0.8, 0.8)
+repeat_size = Vector2(1024, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Rock" unique_id=2004270438]
+position = Vector2(126.33336, 222)
+texture = ExtResource("3_pbw6q")
+
 [node name="Submarin" parent="." unique_id=674800171 instance=ExtResource("1_r150o")]
 
-[node name="Icon3" type="Sprite2D" parent="." unique_id=1910059010]
-position = Vector2(252, -585)
-texture = ExtResource("2_idj7w")
+[node name="GroundBoundarie" type="StaticBody2D" parent="." unique_id=65979008]
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1440433697]
-position = Vector2(-456, -285)
-texture = ExtResource("2_idj7w")
-
-[node name="Icon2" type="Sprite2D" parent="." unique_id=20780596]
-position = Vector2(-571, 238)
-texture = ExtResource("2_idj7w")
-
-[node name="Icon4" type="Sprite2D" parent="." unique_id=537012065]
-position = Vector2(491, 180)
-texture = ExtResource("2_idj7w")
-
-[node name="Icon5" type="Sprite2D" parent="." unique_id=1918517959]
-position = Vector2(1062, -379)
-texture = ExtResource("2_idj7w")
-
-[node name="Icon6" type="Sprite2D" parent="." unique_id=220665198]
-position = Vector2(1450, 537)
-texture = ExtResource("2_idj7w")
-
-[node name="Icon7" type="Sprite2D" parent="." unique_id=1301243308]
-position = Vector2(1700, -724)
-texture = ExtResource("2_idj7w")
-
-[node name="Icon8" type="Sprite2D" parent="." unique_id=1272091639]
-position = Vector2(1598, -1298)
-texture = ExtResource("2_idj7w")
-
-[node name="Icon9" type="Sprite2D" parent="." unique_id=811403582]
-position = Vector2(702, -1594)
-texture = ExtResource("2_idj7w")
-
-[node name="Icon10" type="Sprite2D" parent="." unique_id=868069102]
-position = Vector2(1336, -1601)
-texture = ExtResource("2_idj7w")
-
-[node name="Icon11" type="Sprite2D" parent="." unique_id=1576908690]
-position = Vector2(808, -1510)
-texture = ExtResource("2_idj7w")
-
-[node name="Icon12" type="Sprite2D" parent="." unique_id=1869678394]
-position = Vector2(3041, -1491)
-texture = ExtResource("2_idj7w")
-
-[node name="Icon13" type="Sprite2D" parent="." unique_id=174481520]
-position = Vector2(2133, 119)
-texture = ExtResource("2_idj7w")
-
-[node name="Icon14" type="Sprite2D" parent="." unique_id=972386886]
-position = Vector2(2889, 51)
-texture = ExtResource("2_idj7w")
-
-[node name="Icon15" type="Sprite2D" parent="." unique_id=1170232908]
-position = Vector2(2931, -546)
-texture = ExtResource("2_idj7w")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundBoundarie" unique_id=1798785441]
+position = Vector2(-3, 373)
+shape = SubResource("WorldBoundaryShape2D_rgh2o")
