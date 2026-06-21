@@ -32,6 +32,7 @@
 [ext_resource type="AudioStream" uid="uid://ba0ehl853hb6a" path="res://Assets/Sounds/Underwater Explosion1.mp3" id="30_e6e7t"]
 [ext_resource type="AudioStream" uid="uid://cojjeh2iswnhb" path="res://Assets/Sounds/Underwater Explosion2.mp3" id="31_7ff4u"]
 [ext_resource type="AudioStream" uid="uid://b0m1glwwivbd7" path="res://Assets/Sounds/Underwater Explosion3.mp3" id="32_prgyd"]
+[ext_resource type="Script" uid="uid://6qgambnyjjbx" path="res://Scenes/color_tweener.gd" id="33_7ff4u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dv7rg"]
 shader = ExtResource("5_7xdoq")
@@ -103,10 +104,6 @@ radius = 11.0
 
 [node name="Submarin" type="CharacterBody2D" unique_id=1410131224 groups=["submarine"]]
 script = ExtResource("1_g5k47")
-
-[node name="DamageHandler" type="Node" parent="." unique_id=369217599]
-script = ExtResource("2_kwy8q")
-hole_scene = ExtResource("19_7le7c")
 
 [node name="Outside" type="CollisionPolygon2D" parent="." unique_id=2117627907]
 position = Vector2(7.5645905, 5.612102)
@@ -353,6 +350,10 @@ scale = Vector2(0.3690982, 0.3690982)
 position = Vector2(169.00002, 81.00001)
 scale = Vector2(0.5107683, 0.5107683)
 
+[node name="DamageHandler" type="Node2D" parent="." unique_id=1593814925]
+script = ExtResource("2_kwy8q")
+hole_scene = ExtResource("19_7le7c")
+
 [node name="InsideSound" type="AudioStreamPlayer2D" parent="." unique_id=921627586]
 stream = ExtResource("28_gavvh")
 volume_db = -35.0
@@ -376,6 +377,11 @@ volume_db = -15.0
 [node name="HitSound3" type="AudioStreamPlayer2D" parent="." unique_id=413055776]
 stream = ExtResource("32_prgyd")
 volume_db = -15.0
+
+[node name="ColorTweener" type="Node" parent="." unique_id=332212423]
+script = ExtResource("33_7ff4u")
+start_color = Color(1, 1, 1, 0)
+end_color = Color(1, 1, 1, 1)
 
 [connection signal="area_entered" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_area_entered"]
 [connection signal="area_exited" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_area_exited"]

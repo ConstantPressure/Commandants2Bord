@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bmo1ga6g4seyk" path="res://Scenes/Submarin.tscn" id="1_r150o"]
 [ext_resource type="Texture2D" uid="uid://oiqgpwysti5u" path="res://Assets/Background/Ocean1.png" id="2_rgh2o"]
 [ext_resource type="Texture2D" uid="uid://4j4pgq0nhiuj" path="res://Assets/Background/Ocean2.png" id="3_pbw6q"]
+[ext_resource type="Script" uid="uid://cu4ckmohdyipu" path="res://Scenes/canvas_modulate.gd" id="5_1p5hy"]
+[ext_resource type="Script" uid="uid://bf2dj8goyrrsn" path="res://Scenes/sky_boundarie.gd" id="5_h1m7h"]
 [ext_resource type="PackedScene" uid="uid://ctpd8lgvw2nj2" path="res://Scenes/Fishes/Anchovy.tscn" id="5_pbw6q"]
 [ext_resource type="Texture2D" uid="uid://tjn8w3k3ylnr" path="res://Assets/AldeChauve.png" id="7_4kpch"]
 [ext_resource type="AudioStream" uid="uid://d2abvqt4hne5j" path="res://Assets/Sounds/Alderiate 27 ans v61 (cris et Asmr).mp3" id="8_grg3l"]
@@ -213,12 +215,15 @@ shape = SubResource("WorldBoundaryShape2D_rgh2o")
 [node name="SkyBoundarie" type="StaticBody2D" parent="." unique_id=1485037113]
 position = Vector2(0, -2000)
 rotation = 3.1415927
+script = ExtResource("5_h1m7h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SkyBoundarie" unique_id=1312388379]
 shape = SubResource("WorldBoundaryShape2D_u8shy")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1551265539]
 color = Color(0.029506557, 0.029506557, 0.029506572, 1)
+script = ExtResource("5_1p5hy")
+start_color = Color(1, 1, 1, 1)
 
 [node name="Submarin" parent="." unique_id=674800171 instance=ExtResource("1_r150o")]
 

@@ -13,8 +13,8 @@ func generate_hole():
 	var hole = hole_scene.instantiate()
 	hole.position = random_point_in_polygon(boundaries.polygon)
 	hole.scale *= 0.4
-	get_parent().add_child(hole)
-
+	add_child(hole)
+	
 func random_point_in_polygon(polygon: PackedVector2Array) -> Vector2:
 	var rect := Rect2(polygon[0], Vector2.ZERO)
 
