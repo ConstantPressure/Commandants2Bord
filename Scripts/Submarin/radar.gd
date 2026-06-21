@@ -5,8 +5,6 @@ extends Area2D
 @export var scaner_curve: Curve
 
 var blip_fish = preload("res://Assets/Submarine/Blip_003.png")
-var blip_checkpoint = preload("res://Assets/Submarine/blip_red.png")
-var blip_item = preload("res://Assets/Submarine/blip_yellow.png")
 var curve_time: float = 0.0
 
 func _ready() -> void:
@@ -19,10 +17,6 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("fishes"):
 		radar_ui.add_object(body, blip_fish)
-	if body.is_in_group("checkpoint"):
-		radar_ui.add_object(body, blip_checkpoint)
-	if body.is_in_group("items"):
-		radar_ui.add_object(body, blip_item)
 
 func _on_body_exited(body: Node2D) -> void:
 	radar_ui.remove_object(body)
@@ -30,10 +24,6 @@ func _on_body_exited(body: Node2D) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("fishes"):
 		radar_ui.add_object(area, blip_fish)
-	if area.is_in_group("checkpoint"):
-		radar_ui.add_object(area, blip_checkpoint)
-	if area.is_in_group("items"):
-		radar_ui.add_object(area, blip_item)
 
 func _on_area_exited(area: Area2D) -> void:
 	radar_ui.remove_object(area)
