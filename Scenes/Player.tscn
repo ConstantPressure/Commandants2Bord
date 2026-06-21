@@ -115,6 +115,15 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_dewec"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u8shy"]
+gradient = SubResource("Gradient_dewec")
+fill = 1
+fill_from = Vector2(0.5043478, 0.46086955)
+fill_to = Vector2(0.17391305, 0.14782609)
+
 [node name="Player" type="CharacterBody2D" unique_id=1364299286]
 collision_layer = 2
 collision_mask = 2
@@ -141,6 +150,11 @@ debug_color = Color(0.8117385, 0.3963735, 0.29916215, 0.41960785)
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_u8shy")
 animation = &"idle"
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=892633198]
+light_mask = 2
+visibility_layer = 2
+texture = SubResource("GradientTexture2D_u8shy")
 
 [connection signal="area_entered" from="ControllableDetector" to="ControllableDetector" method="_on_area_entered"]
 [connection signal="area_exited" from="ControllableDetector" to="ControllableDetector" method="_on_area_exited"]
