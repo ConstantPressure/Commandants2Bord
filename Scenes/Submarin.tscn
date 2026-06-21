@@ -7,15 +7,18 @@
 [ext_resource type="Script" uid="uid://bdbgfkq3k13l1" path="res://Scripts/Submarin/fins.gd" id="4_gc5cj"]
 [ext_resource type="Texture2D" uid="uid://bbc3k70pb3rws" path="res://Assets/Submarine/4.png" id="5_pb85f"]
 [ext_resource type="PackedScene" uid="uid://dwl870574drqn" path="res://Scenes/Lever.tscn" id="6_0qqje"]
-[ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://Scenes/Player.tscn" id="7_gc5cj"]
 [ext_resource type="Texture2D" uid="uid://cdhymep0fqo63" path="res://Assets/Objects/Screen2.png" id="8_l0cdu"]
 [ext_resource type="Texture2D" uid="uid://ba34cyhn1mrjb" path="res://Assets/Objects/Pointer2.png" id="9_vguhp"]
 [ext_resource type="Texture2D" uid="uid://ch7ux53gvdm68" path="res://Assets/Objects/Pointer1.png" id="10_pb85f"]
 [ext_resource type="Script" uid="uid://dfbh11dq23cm5" path="res://Scripts/Submarin/cockpit.gd" id="11_8eoxr"]
 [ext_resource type="Texture2D" uid="uid://bna8by4cm04hb" path="res://Assets/cone.png" id="12_gfngk"]
 [ext_resource type="PackedScene" uid="uid://dsxs6o3qwpxl" path="res://Scenes/Objects/Estinguisher.tscn" id="12_vguhp"]
+[ext_resource type="Script" uid="uid://okmr4btmdgsp" path="res://Scripts/Submarin/radar.gd" id="13_7le7c"]
+[ext_resource type="Texture2D" uid="uid://b0ixtav7xywdx" path="res://Assets/Submarine/Radar.png" id="13_kvgwc"]
 [ext_resource type="PackedScene" uid="uid://dnea2oqv3p0e6" path="res://Scenes/Objects/Mop.tscn" id="13_y47bk"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="14_1kwcj"]
 [ext_resource type="PackedScene" uid="uid://cue33n2bnd2l5" path="res://Scenes/Objects/Light.tscn" id="14_582ut"]
+[ext_resource type="Script" uid="uid://c7o1qnxu1fmc4" path="res://Scripts/Submarin/radar_ui.gd" id="14_kwy8q"]
 [ext_resource type="Script" uid="uid://dym33vk8njt5q" path="res://Scripts/lights.gd" id="15_rmov0"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tc5bk"]
@@ -23,6 +26,9 @@ polygon = PackedVector2Array(-366, -48, -366, 68, -300, 68, -300, 31, 11, 31, 11
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0qqje"]
 polygon = PackedVector2Array(-304, -13, -304, 4, 14, 4, 14, -35, -177, -35, -177, -13)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mlgr5"]
+radius = 5481.2188
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pb85f"]
 atlas = ExtResource("8_l0cdu")
@@ -63,7 +69,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_u8shy"]
 radius = 11.0
 
-[node name="Submarin" type="CharacterBody2D" unique_id=1410131224]
+[node name="Submarin" type="CharacterBody2D" unique_id=1410131224 groups=["submarine"]]
 script = ExtResource("1_g5k47")
 
 [node name="Outside" type="CollisionPolygon2D" parent="." unique_id=2117627907]
@@ -187,6 +193,8 @@ rotation = -11.004557
 
 [node name="Mop" parent="Objects" unique_id=2053221755 instance=ExtResource("13_y47bk")]
 position = Vector2(-99, 89)
+collision_layer = 2
+collision_mask = 2
 
 [node name="Pointer2" type="Sprite2D" parent="Objects" unique_id=2094637100]
 position = Vector2(-203, -21)
@@ -212,6 +220,31 @@ position = Vector2(261, -139)
 rotation = -2.046987
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("12_gfngk")
+
+[node name="Radar" type="Area2D" parent="Cockpit/Aimer" unique_id=749649999]
+visible = false
+collision_mask = 4
+script = ExtResource("13_7le7c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cockpit/Aimer/Radar" unique_id=1071516950]
+shape = SubResource("CircleShape2D_mlgr5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Cockpit/Aimer/Radar" unique_id=308504692]
+visible = false
+
+[node name="RadarUI" type="MarginContainer" parent="Cockpit/Aimer/Radar/CanvasLayer" unique_id=350605035]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("14_kwy8q")
+
+[node name="Radar" type="TextureRect" parent="Cockpit/Aimer/Radar/CanvasLayer/RadarUI" unique_id=1646009321]
+layout_mode = 2
+texture = ExtResource("13_kvgwc")
+
+[node name="Submarine" type="Sprite2D" parent="Cockpit/Aimer/Radar/CanvasLayer/RadarUI/Radar" unique_id=1165236087]
+position = Vector2(171, 186.99998)
+scale = Vector2(0.15625, 0.15625025)
+texture = ExtResource("14_1kwcj")
 
 [node name="Monitor1" type="AnimatedSprite2D" parent="Cockpit" unique_id=979984237]
 position = Vector2(12, 18)
@@ -255,5 +288,4 @@ position = Vector2(78, 75)
 scale = Vector2(-0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_u8shy")
 
-[node name="Player" parent="." unique_id=1364299286 instance=ExtResource("7_gc5cj")]
-position = Vector2(-339, 37)
+[connection signal="body_entered" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_body_entered"]

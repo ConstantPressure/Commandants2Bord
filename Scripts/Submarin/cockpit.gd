@@ -14,7 +14,7 @@ func _input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	if not prefix.is_empty():
-		if aimer.visible:
+		if not aimer.visible:
 			aimer.show()
 		if Input.is_action_pressed(prefix + "right") and angle < 0.9:
 			angle += rotate_speed * delta

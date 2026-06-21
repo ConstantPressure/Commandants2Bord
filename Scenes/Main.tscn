@@ -1,14 +1,17 @@
 [gd_scene format=3 uid="uid://155xx7s6y6ta"]
 
 [ext_resource type="Texture2D" uid="uid://bp4xp5856ypsk" path="res://Assets/Background/Ocean0.png" id="1_kln2b"]
+[ext_resource type="Script" uid="uid://dv2pjqdemn0kf" path="res://Scripts/main.gd" id="1_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://bmo1ga6g4seyk" path="res://Scenes/Submarin.tscn" id="1_r150o"]
 [ext_resource type="Texture2D" uid="uid://oiqgpwysti5u" path="res://Assets/Background/Ocean1.png" id="2_rgh2o"]
 [ext_resource type="Texture2D" uid="uid://4j4pgq0nhiuj" path="res://Assets/Background/Ocean2.png" id="3_pbw6q"]
+[ext_resource type="PackedScene" uid="uid://ctpd8lgvw2nj2" path="res://Scenes/Fishes/Anchovy.tscn" id="5_pbw6q"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgh2o"]
 distance = -701.0
 
 [node name="Main" type="Node2D" unique_id=1919346275]
+script = ExtResource("1_pbw6q")
 
 [node name="Background" type="Node2D" parent="." unique_id=1270695814]
 
@@ -51,3 +54,11 @@ shape = SubResource("WorldBoundaryShape2D_rgh2o")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1551265539]
 color = Color(0.029506557, 0.029506557, 0.029506572, 1)
+
+[node name="Spawner" type="Timer" parent="." unique_id=88231397]
+wait_time = 5.0
+
+[node name="Anchovy" parent="." unique_id=409646533 instance=ExtResource("5_pbw6q")]
+position = Vector2(880, 4)
+
+[connection signal="timeout" from="Spawner" to="." method="_on_spawner_timeout"]
