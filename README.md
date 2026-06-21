@@ -9,7 +9,8 @@ Très sympa comme jeu
 
 # Gameplay
 
-You were trapped in the low tide. Your goal is to find the 3 magic objects that help raise the tide. However, these waters are far from calm; I hope your crew will be ready for any casualties.
+You were **trapped** in the low tide. Your goal is to find the **3 magic objects** that help **raise the tide**.
+However, these waters are far from calm; I hope your crew will be ready for any casualties.
 
 ## The rooms
 
@@ -34,6 +35,7 @@ The flippers room is also very important since it allows the submarine to change
 ### Cockpit
 
 The cockpit allows you to probe the depths in order to steer the submarine through all the obstacles, but also... the dangers...
+Objects to collect are in **YELLOW** and the exit is **RED**.
 
 *Actions:*
 * *Right button (hop in / leave)*
@@ -65,3 +67,7 @@ Last resort, if you haven’t fixed the holes quickly enough, you will have to d
 Once the game has been launched, you will need controllers (PS4/5, XBOX...). **Each connected controller is equivalent to one player**.
 
 Once connected you can start right away !!
+
+# Other
+
+This project was made in two days from Friday 19th June 2026 10am until Sunday 21th June 2026 11:42pm for a GameJame organized by Epitech Paris.
