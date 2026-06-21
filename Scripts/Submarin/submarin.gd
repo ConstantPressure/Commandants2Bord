@@ -22,7 +22,6 @@ func hit(vel: Vector2) -> void:
 	var damage = impact_speed * DAMAGE_MULTIPLIER
 	health -= damage
 	knockback += vel.normalized() * SUBMARINE_KNOCKBACK * (impact_speed / 100.0)
-	print(health)
 
 func _physics_process(_delta: float) -> void:
 	var motor_velocity = (Vector2.RIGHT * speed).rotated(rotation)
