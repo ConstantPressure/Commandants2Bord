@@ -218,7 +218,6 @@ rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_u8shy")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1551265539]
-visible = false
 color = Color(0.029506557, 0.029506557, 0.029506572, 1)
 
 [node name="Submarin" parent="." unique_id=674800171 instance=ExtResource("1_r150o")]
