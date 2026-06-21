@@ -6,6 +6,11 @@ const anchoy_res: Resource = preload("res://Scenes/Fishes/Anchovy.tscn")
 const player_res: Resource = preload("res://Scenes/Player.tscn")
 @onready var pouleto: Sprite2D = $End/Pouleto
 @onready var end_timer: Timer = $End/EndTimer
+@onready var end_item_1: Area2D = $EndItem1
+@onready var end_item_2: Area2D = $EndItem2
+@onready var end_item_3: Area2D = $EndItem3
+
+var items_found: int = 0
 
 func _ready() -> void:
 	Input.joy_connection_changed.connect(_on_input_changed)
@@ -35,3 +40,18 @@ func _on_end_body_entered(body: Node2D) -> void:
 
 func _on_end_timer_timeout() -> void:
 	get_tree().quit()
+
+func _on_end_item_1_body_entered(body: Node2D) -> void:
+	if body.name == "Submarin":
+		items_found += 1
+		end_item_1.queue_free()
+
+func _on_end_item_2_body_entered(body: Node2D) -> void:
+	if body.name == "Submarin":
+		items_found += 1
+		end_item_2.queue_free()
+
+func _on_end_item_3_body_entered(body: Node2D) -> void:
+	if body.name == "Submarin":
+		items_found += 1
+		end_item_3.queue_free()

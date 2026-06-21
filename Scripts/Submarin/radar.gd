@@ -4,9 +4,9 @@ extends Area2D
 @onready var scaner: Polygon2D = $CanvasLayer/Scaner
 @export var scaner_curve: Curve
 
-var fish_icon = preload("res://Assets/Submarine/Blip_003.png")
-var rock_icon = preload("res://Assets/Submarine/Blip_003.png")
-var checkpoint_icon = preload("res://Assets/Submarine/Blip_003.png")
+var blip_fish = preload("res://Assets/Submarine/Blip_003.png")
+var blip_checkpoint = preload("res://Assets/Submarine/blip_red.png")
+var blip_item = preload("res://Assets/Submarine/blip_yellow.png")
 var curve_time: float = 0.0
 
 func _ready() -> void:
@@ -18,12 +18,22 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("fishes"):
-		radar_ui.add_object(body, fish_icon)
-	if body.is_in_group("rock"):
-		radar_ui.add_object(body, rock_icon)
+		radar_ui.add_object(body, blip_fish)
 	if body.is_in_group("checkpoint"):
-		radar_ui.add_object(body, checkpoint_icon)
-
+		radar_ui.add_object(body, blip_checkpoint)
+	if body.is_in_group("items"):
+		radar_ui.add_object(body, blip_item)
 
 func _on_body_exited(body: Node2D) -> void:
 	radar_ui.remove_object(body)
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("fishes"):
+		radar_ui.add_object(area, blip_fish)
+	if area.is_in_group("checkpoint"):
+		radar_ui.add_object(area, blip_checkpoint)
+	if area.is_in_group("items"):
+		radar_ui.add_object(area, blip_item)
+
+func _on_area_exited(area: Area2D) -> void:
+	radar_ui.remove_object(area)
