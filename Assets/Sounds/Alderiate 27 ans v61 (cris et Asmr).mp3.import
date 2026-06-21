@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d2abvqt4hne5j"
+path="res://.godot/imported/Alderiate 27 ans v61 (cris et Asmr).mp3-9860af1dbdf66d966c4f8c077e71a2ac.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Alderiate 27 ans v61 (cris et Asmr).mp3"
+dest_files=["res://.godot/imported/Alderiate 27 ans v61 (cris et Asmr).mp3-9860af1dbdf66d966c4f8c077e71a2ac.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

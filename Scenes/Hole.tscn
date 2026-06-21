@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://qa4rpwd653u7"]
 
+[ext_resource type="AudioStream" uid="uid://bmku8fsgmxv06" path="res://Assets/Sounds/Water Leak Sound Effect.mp3" id="1_4h5bc"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_33aoo"]
 radius = 30.0
 
@@ -20,3 +22,9 @@ offset_left = -15.0
 offset_top = -15.0
 offset_right = 15.0
 offset_bottom = 15.0
+
+[node name="LeakSound" type="AudioStreamPlayer2D" parent="." unique_id=1120866931]
+stream = ExtResource("1_4h5bc")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
