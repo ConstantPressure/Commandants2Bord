@@ -6,27 +6,54 @@
 [ext_resource type="Texture2D" uid="uid://bdoeqlon4505q" path="res://Assets/Submarine/5.png" id="3_l0cdu"]
 [ext_resource type="Script" uid="uid://bpsumhoevejbv" path="res://Scripts/Submarin/motor.gd" id="3_wmfhu"]
 [ext_resource type="Script" uid="uid://bdbgfkq3k13l1" path="res://Scripts/Submarin/fins.gd" id="4_gc5cj"]
+[ext_resource type="Shader" uid="uid://dy74soo33mp6a" path="res://Shaders/water.gdshader" id="5_7xdoq"]
 [ext_resource type="Texture2D" uid="uid://bbc3k70pb3rws" path="res://Assets/Submarine/4.png" id="5_pb85f"]
 [ext_resource type="PackedScene" uid="uid://dwl870574drqn" path="res://Scenes/Lever.tscn" id="6_0qqje"]
-[ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://Scenes/Player.tscn" id="7_gc5cj"]
+[ext_resource type="Texture2D" uid="uid://bp4xp5856ypsk" path="res://Assets/Background/Ocean0.png" id="6_kr7u8"]
 [ext_resource type="Texture2D" uid="uid://cdhymep0fqo63" path="res://Assets/Objects/Screen2.png" id="8_l0cdu"]
 [ext_resource type="Texture2D" uid="uid://ba34cyhn1mrjb" path="res://Assets/Objects/Pointer2.png" id="9_vguhp"]
 [ext_resource type="Texture2D" uid="uid://ch7ux53gvdm68" path="res://Assets/Objects/Pointer1.png" id="10_pb85f"]
 [ext_resource type="Script" uid="uid://dfbh11dq23cm5" path="res://Scripts/Submarin/cockpit.gd" id="11_8eoxr"]
 [ext_resource type="Texture2D" uid="uid://bna8by4cm04hb" path="res://Assets/cone.png" id="12_gfngk"]
 [ext_resource type="PackedScene" uid="uid://dsxs6o3qwpxl" path="res://Scenes/Objects/Estinguisher.tscn" id="12_vguhp"]
+[ext_resource type="Script" uid="uid://okmr4btmdgsp" path="res://Scripts/Submarin/radar.gd" id="13_7le7c"]
+[ext_resource type="Texture2D" uid="uid://b0ixtav7xywdx" path="res://Assets/Submarine/Radar.png" id="13_kvgwc"]
 [ext_resource type="PackedScene" uid="uid://dnea2oqv3p0e6" path="res://Scenes/Objects/Mop.tscn" id="13_y47bk"]
 [ext_resource type="PackedScene" uid="uid://cue33n2bnd2l5" path="res://Scenes/Objects/Light.tscn" id="14_582ut"]
+[ext_resource type="Script" uid="uid://c7o1qnxu1fmc4" path="res://Scripts/Submarin/radar_ui.gd" id="14_kwy8q"]
 [ext_resource type="Script" uid="uid://dym33vk8njt5q" path="res://Scripts/lights.gd" id="15_rmov0"]
 [ext_resource type="PackedScene" uid="uid://cbhw444fxbagq" path="res://Scenes/Plank.tscn" id="18_1kwcj"]
 [ext_resource type="PackedScene" uid="uid://bxthjhssil20q" path="res://Scenes/PlankStorage.tscn" id="18_kvgwc"]
 [ext_resource type="PackedScene" uid="uid://qa4rpwd653u7" path="res://Scenes/Hole.tscn" id="19_7le7c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dv7rg"]
+shader = ExtResource("5_7xdoq")
+shader_parameter/liquid_level = 0.6590000313025
+shader_parameter/liquid_color = Color(0.2, 0.5, 1, 0.8)
+shader_parameter/foam_color = Color(0.8, 0.9, 1, 0.6)
+shader_parameter/wave_amplitude = 0.00400000019
+shader_parameter/wave_frequency = 2.582000122645
+shader_parameter/wave_speed = 1.4050000667375
+shader_parameter/gravity_angle = 0.0004100308367998
+shader_parameter/gravity_direction = Vector2(0, 1)
+shader_parameter/foam_thickness = 0.02
+shader_parameter/shine_intensity = 0.3
+shader_parameter/add_bubble = false
+shader_parameter/bubble_scale = 10.0
+shader_parameter/bubble_speed = 0.5
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tc5bk"]
 polygon = PackedVector2Array(-366, -48, -366, 68, -300, 68, -300, 31, 11, 31, 11, 69, -18, 69, -18, 39, -110, 39, -110, 102, 230, 102, 230, 28, 107, 28, 107, 70, 86, 70, 86, 55, 46, 55, 46, -42, 214, -42, 214, -17, 299, -17, 299, -72, 247, -87, 217, -84, 217, -71, 46, -71, 46, -117, -117, -117, -118, -62, -206, -62, -206, -40, -301, -40, -301, -48, -304, -45, -304, -37, -203, -37, -203, -59, -114, -59, -114, -113, 42, -113, 42, -67, 221, -67, 221, -79, 247, -82, 295, -69, 295, -21, 219, -21, 219, -46, 42, -46, 42, 59, 82, 59, 82, 74, 111, 74, 111, 32, 225, 32, 225, 98, -106, 98, -106, 43, -22, 43, -21, 72, 14, 72, 14, 27, -304, 27, -304, 65, -362, 65, -362, -45, -304, -45, -301, -48)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0qqje"]
 polygon = PackedVector2Array(-304, -13, -304, 4, 14, 4, 14, -35, -177, -35, -177, -13)
+
+[sub_resource type="Curve" id="Curve_1kwcj"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(0.39, 1), 0.0, 0.0, 0, 0, Vector2(0.505, 0), 0.0, 0.0, 0, 0, Vector2(0.885, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mlgr5"]
+radius = 4505.1772
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pb85f"]
 atlas = ExtResource("8_l0cdu")
@@ -67,7 +94,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_u8shy"]
 radius = 11.0
 
-[node name="Submarin" type="CharacterBody2D" unique_id=1410131224]
+[node name="Submarin" type="CharacterBody2D" unique_id=1410131224 groups=["submarine"]]
 script = ExtResource("1_g5k47")
 
 [node name="DamageHandler" type="Node" parent="." unique_id=369217599]
@@ -114,6 +141,14 @@ texture = ExtResource("5_pb85f")
 [node name="Sprite2D" type="Sprite2D" parent="Boundaries/InsideBackground/Parallax2D3" unique_id=1949696305]
 position = Vector2(62, -64)
 texture = ExtResource("3_l0cdu")
+
+[node name="Polygon2D" type="Polygon2D" parent="Boundaries/InsideBackground" unique_id=943626354]
+material = SubResource("ShaderMaterial_dv7rg")
+position = Vector2(-560, -1344)
+texture = ExtResource("6_kr7u8")
+texture_offset = Vector2(0, 500)
+texture_scale = Vector2(0.13, 0.13)
+polygon = PackedVector2Array(-2792.7668, -2090.771, 3935.711, -1885.331, 3883.1797, 3262.8013, -2683.3164, 3315.3335)
 
 [node name="Inside1" type="StaticBody2D" parent="Boundaries" unique_id=35362935]
 collision_layer = 2
@@ -195,6 +230,8 @@ rotation = -11.004557
 
 [node name="Mop" parent="Objects" unique_id=2053221755 instance=ExtResource("13_y47bk")]
 position = Vector2(-99, 89)
+collision_layer = 2
+collision_mask = 2
 
 [node name="Pointer2" type="Sprite2D" parent="Objects" unique_id=2094637100]
 position = Vector2(-203, -21)
@@ -220,6 +257,38 @@ position = Vector2(261, -139)
 rotation = -2.046987
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("12_gfngk")
+
+[node name="Radar" type="Area2D" parent="Cockpit/Aimer" unique_id=749649999]
+script = ExtResource("13_7le7c")
+scaner_curve = SubResource("Curve_1kwcj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cockpit/Aimer/Radar" unique_id=1071516950]
+shape = SubResource("CircleShape2D_mlgr5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Cockpit/Aimer/Radar" unique_id=308504692]
+
+[node name="Scaner" type="Polygon2D" parent="Cockpit/Aimer/Radar/CanvasLayer" unique_id=2051590267]
+position = Vector2(968.00006, 465)
+rotation = 0.47996554
+scale = Vector2(0.31, 0.31)
+color = Color(0, 0.6, 0.23921569, 0.3882353)
+polygon = PackedVector2Array(17, -22, 440, -331, 527, -164, 29, -1)
+
+[node name="RadarUI" type="MarginContainer" parent="Cockpit/Aimer/Radar/CanvasLayer" unique_id=350605035]
+offset_left = 797.0
+offset_top = 294.0
+offset_right = 1139.0
+offset_bottom = 636.0
+script = ExtResource("14_kwy8q")
+
+[node name="Radar" type="TextureRect" parent="Cockpit/Aimer/Radar/CanvasLayer/RadarUI" unique_id=1646009321]
+layout_mode = 2
+texture = ExtResource("13_kvgwc")
+
+[node name="Submarine" type="Sprite2D" parent="Cockpit/Aimer/Radar/CanvasLayer/RadarUI/Radar" unique_id=1165236087]
+position = Vector2(171, 170.99998)
+scale = Vector2(-0.111, 0.111)
+texture = ExtResource("2_tc5bk")
 
 [node name="Monitor1" type="AnimatedSprite2D" parent="Cockpit" unique_id=979984237]
 position = Vector2(12, 18)
@@ -259,6 +328,9 @@ sprite_frames = SubResource("SpriteFrames_u8shy")
 position = Vector2(78, 75)
 scale = Vector2(-0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_u8shy")
+
+[connection signal="body_entered" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_body_entered"]
+[connection signal="body_exited" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_body_exited"]
 
 [node name="PlankStorage" parent="." unique_id=1408031030 instance=ExtResource("18_kvgwc")]
 position = Vector2(-63.999992, 89)
