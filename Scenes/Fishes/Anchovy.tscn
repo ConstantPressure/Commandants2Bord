@@ -35,9 +35,6 @@ shape = SubResource("CircleShape2D_u8shy")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack" unique_id=1909583500]
 shape = SubResource("CircleShape2D_1ik8r")
 
-[node name="Despawn" type="Timer" parent="." unique_id=1151584180]
-wait_time = 10.0
-
 [node name="Wandering" type="Timer" parent="." unique_id=341315480]
 wait_time = 5.0
 one_shot = true

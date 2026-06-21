@@ -46,14 +46,14 @@ func _physics_process(delta: float) -> void:
 			velocity = velocity.lerp(desired, LERP_WEIGHT)
 			if is_at_target_position():
 				state = IDLE
-		FOLLOW:
-			var desired = global_position.direction_to(submarine.global_position) * SPEED * delta
-			velocity = velocity.lerp(desired, LERP_WEIGHT)
 		IDLE:
 			velocity = velocity.lerp(Vector2.ZERO, LERP_WEIGHT)
 			if wait.is_stopped():
 				wait.wait_time = randi_range(2, 10)
 				wait.start()
+		FOLLOW:
+			var desired = global_position.direction_to(submarine.global_position) * SPEED * delta
+			velocity = velocity.lerp(desired, LERP_WEIGHT)
 		ATK:
 			velocity = velocity.lerp(Vector2.ZERO, LERP_WEIGHT)
 			if atk_spd.is_stopped():
@@ -70,7 +70,10 @@ func _physics_process(delta: float) -> void:
 			velocity = Vector2.ZERO
 	var collide = move_and_collide(velocity)
 	chek_hit_submarine(collide)
-	look_at(velocity)
+	if state == FOLLOW or state == ATK or state == RUSH or state == RECOIL or state == RECOIL_WAIT:
+		look_at(submarine.global_position)
+	else:
+		look_at(velocity)
 	if velocity.length() > 1.0:
 		var target_angle = velocity.angle()
 		rotation = lerp_angle(rotation, target_angle, 0.15)
