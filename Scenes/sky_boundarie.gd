@@ -9,5 +9,7 @@ func _process(delta: float) -> void:
 		position.y = -2750
 	if item_count == 1:
 		position.y = -3500
+		$"../Background/Sea/Sprite2D".scale.y = 2
 	if item_count == 0:
 		position.y = -5000
+		$"../Background/Sea/Sprite2D".scale.y = 3

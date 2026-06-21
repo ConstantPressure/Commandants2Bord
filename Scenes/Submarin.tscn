@@ -183,7 +183,8 @@ occluder = SubResource("OccluderPolygon2D_0qqje")
 occluder_light_mask = 2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1950995903]
-position = Vector2(91, 0)
+position = Vector2(40, 0)
+zoom = Vector2(0.9, 0.9)
 
 [node name="Objects" type="Node2D" parent="." unique_id=1757655380]
 
@@ -395,6 +396,9 @@ volume_db = -10.0
 [node name="GameOverExplosion" type="Sprite2D" parent="." unique_id=1515108668]
 modulate = Color(1, 1, 1, 0)
 texture = ExtResource("34_prgyd")
+
+[node name="PlayerSpawner" type="Marker2D" parent="." unique_id=834684063]
+position = Vector2(-322, 53)
 
 [connection signal="area_entered" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_area_entered"]
 [connection signal="area_exited" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_area_exited"]
