@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ch7ux53gvdm68" path="res://Assets/Objects/Pointer1.png" id="9_bmxlf"]
 [ext_resource type="Texture2D" uid="uid://bmkx43vsbt5yi" path="res://Assets/pngtree-chicken-giving-a-thumbs-up-png-image_17415906.png" id="9_vy5pj"]
 [ext_resource type="Texture2D" uid="uid://dc8v1g3j704kl" path="res://Assets/global_free_recoloured.png" id="10_bmxlf"]
+[ext_resource type="AudioStream" uid="uid://deabo0ue3iklp" path="res://Assets/Sounds/La Cucaracha -  Minecraft Valhelsia 3.mp3" id="12_frkhe"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgh2o"]
 distance = -701.0
@@ -299,7 +300,6 @@ texture = ExtResource("7_4kpch")
 position = Vector2(-5.2535076, 34.733402)
 stream = ExtResource("8_grg3l")
 volume_db = -15.0
-autoplay = true
 
 [node name="End" type="Area2D" parent="." unique_id=1383726101 groups=["checkpoint"]]
 position = Vector2(8567.001, -329)
@@ -325,6 +325,11 @@ texture = ExtResource("9_vy5pj")
 
 [node name="EndTimer" type="Timer" parent="End" unique_id=1724352560]
 wait_time = 3.0
+
+[node name="Cucaracha" type="AudioStreamPlayer2D" parent="End" unique_id=354579856]
+position = Vector2(145.17181, -792.4528)
+stream = ExtResource("12_frkhe")
+parameters/looping = true
 
 [node name="EndItem1" type="Area2D" parent="." unique_id=2010971087 groups=["items"]]
 position = Vector2(-4767, 583)

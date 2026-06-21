@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://deabo0ue3iklp"
+path="res://.godot/imported/La Cucaracha -  Minecraft Valhelsia 3.mp3-f9824a98599cc3d780d1d8124780b2e5.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/La Cucaracha -  Minecraft Valhelsia 3.mp3"
+dest_files=["res://.godot/imported/La Cucaracha -  Minecraft Valhelsia 3.mp3-f9824a98599cc3d780d1d8124780b2e5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
