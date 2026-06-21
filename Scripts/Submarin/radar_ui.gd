@@ -26,7 +26,6 @@ func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	player.rotation_degrees = submarine.rotation_degrees
 	player.position = center
 
 	for object in objects.keys():

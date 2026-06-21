@@ -1,10 +1,11 @@
 extends Node2D
 
 @onready var submarin: CharacterBody2D = $Submarin
-@onready var spawner: Timer = $"Spawner"
 
 const anchoy_res: Resource = preload("res://Scenes/Fishes/Anchovy.tscn")
 const player_res: Resource = preload("res://Scenes/Player.tscn")
+@onready var pouleto: Sprite2D = $End/Pouleto
+@onready var end_timer: Timer = $End/EndTimer
 
 func _ready() -> void:
 	Input.joy_connection_changed.connect(_on_input_changed)
@@ -27,7 +28,10 @@ func _on_input_changed(device: int, connected: bool) -> void:
 				child.queue_free()
 
 
-func _on_spawner_timeout() -> void:
-	var new_anchoy = anchoy_res.instantiate()
-	new_anchoy.global_position = Vector2(20, 0)
-	add_child(new_anchoy)
+func _on_end_body_entered(body: Node2D) -> void:
+	if body.name == "Submarin":
+		pouleto.show()
+		end_timer.start()
+
+func _on_end_timer_timeout() -> void:
+	get_tree().quit()
