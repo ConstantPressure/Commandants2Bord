@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c3ubxpp10k6x6" path="res://Scripts/player.gd" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://b7i6sy5326bi7" path="res://Assets/player.png" id="2_kyqiw"]
-[ext_resource type="Script" uid="uid://bnocmi3ubmrle" path="res://Scripts/utility_detector.gd" id="3_gntrk"]
+[ext_resource type="Script" uid="uid://cqy0eiybpsr3d" path="res://Scripts/Submarin/interractable_detector.gd" id="3_dewec"]
+[ext_resource type="Script" uid="uid://bnocmi3ubmrle" path="res://Scripts/controllable_detector.gd" id="3_gntrk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rpqav"]
 radius = 5.0
@@ -122,10 +123,17 @@ script = ExtResource("1_kyqiw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1567161601]
 shape = SubResource("CapsuleShape2D_rpqav")
 
-[node name="UtilityDetector" type="Area2D" parent="." unique_id=1779282994]
+[node name="ControllableDetector" type="Area2D" parent="." unique_id=1779282994]
 script = ExtResource("3_gntrk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="UtilityDetector" unique_id=1475278794]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ControllableDetector" unique_id=1475278794]
+shape = SubResource("CircleShape2D_kyqiw")
+debug_color = Color(0.8117385, 0.3963735, 0.29916215, 0.41960785)
+
+[node name="InterractableDetector" type="Area2D" parent="." unique_id=1703280738]
+script = ExtResource("3_dewec")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InterractableDetector" unique_id=793868569]
 shape = SubResource("CircleShape2D_kyqiw")
 debug_color = Color(0.8117385, 0.3963735, 0.29916215, 0.41960785)
 
@@ -134,5 +142,7 @@ position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_u8shy")
 animation = &"idle"
 
-[connection signal="area_entered" from="UtilityDetector" to="UtilityDetector" method="_on_area_entered"]
-[connection signal="area_exited" from="UtilityDetector" to="UtilityDetector" method="_on_area_exited"]
+[connection signal="area_entered" from="ControllableDetector" to="ControllableDetector" method="_on_area_entered"]
+[connection signal="area_exited" from="ControllableDetector" to="ControllableDetector" method="_on_area_exited"]
+[connection signal="area_entered" from="InterractableDetector" to="InterractableDetector" method="_on_area_entered"]
+[connection signal="area_exited" from="InterractableDetector" to="InterractableDetector" method="_on_area_exited"]

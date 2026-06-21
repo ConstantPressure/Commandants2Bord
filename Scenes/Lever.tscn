@@ -5,7 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ic0j1"]
 radius = 22.090721
 
-[node name="Lever" type="Area2D" unique_id=1807663171 groups=["utility"]]
+[node name="Lever" type="Area2D" unique_id=1807663171 groups=["controllable"]]
 script = ExtResource("1_0ohsc")
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=1706176574]
@@ -26,5 +26,3 @@ color = Color(0.60933006, 0.6093301, 0.60933006, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=449275630]
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_ic0j1")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1947469811]

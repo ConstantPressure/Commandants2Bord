@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bmo1ga6g4seyk"]
 
 [ext_resource type="Script" uid="uid://dkobwvkyhjshb" path="res://Scripts/Submarin/submarin.gd" id="1_g5k47"]
+[ext_resource type="Script" uid="uid://bk23gho0atevb" path="res://Scenes/damage_handler.gd" id="2_kwy8q"]
 [ext_resource type="Texture2D" uid="uid://cvp2khn864x1t" path="res://Assets/Salmon.png" id="2_tc5bk"]
 [ext_resource type="Texture2D" uid="uid://bdoeqlon4505q" path="res://Assets/Submarine/5.png" id="3_l0cdu"]
 [ext_resource type="Script" uid="uid://bpsumhoevejbv" path="res://Scripts/Submarin/motor.gd" id="3_wmfhu"]
@@ -21,6 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://cue33n2bnd2l5" path="res://Scenes/Objects/Light.tscn" id="14_582ut"]
 [ext_resource type="Script" uid="uid://c7o1qnxu1fmc4" path="res://Scripts/Submarin/radar_ui.gd" id="14_kwy8q"]
 [ext_resource type="Script" uid="uid://dym33vk8njt5q" path="res://Scripts/lights.gd" id="15_rmov0"]
+[ext_resource type="PackedScene" uid="uid://cbhw444fxbagq" path="res://Scenes/Plank.tscn" id="18_1kwcj"]
+[ext_resource type="PackedScene" uid="uid://bxthjhssil20q" path="res://Scenes/PlankStorage.tscn" id="18_kvgwc"]
+[ext_resource type="PackedScene" uid="uid://qa4rpwd653u7" path="res://Scenes/Hole.tscn" id="19_7le7c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dv7rg"]
 shader = ExtResource("5_7xdoq")
@@ -92,6 +96,10 @@ radius = 11.0
 
 [node name="Submarin" type="CharacterBody2D" unique_id=1410131224 groups=["submarine"]]
 script = ExtResource("1_g5k47")
+
+[node name="DamageHandler" type="Node" parent="." unique_id=369217599]
+script = ExtResource("2_kwy8q")
+hole_scene = ExtResource("19_7le7c")
 
 [node name="Outside" type="CollisionPolygon2D" parent="." unique_id=2117627907]
 position = Vector2(7.5645905, 5.612102)
@@ -238,7 +246,7 @@ texture = ExtResource("10_pb85f")
 [node name="Estinguisher" parent="Objects" unique_id=303774454 instance=ExtResource("12_vguhp")]
 position = Vector2(73, 89)
 
-[node name="Cockpit" type="Area2D" parent="." unique_id=1831207646 groups=["utility"]]
+[node name="Cockpit" type="Area2D" parent="." unique_id=1831207646 groups=["controllable"]]
 position = Vector2(265, -50)
 script = ExtResource("11_8eoxr")
 
@@ -298,7 +306,6 @@ script = ExtResource("3_wmfhu")
 [node name="Lever" parent="Motor" unique_id=1807663171 instance=ExtResource("6_0qqje")]
 position = Vector2(-121, 51)
 scale = Vector2(0.5, 0.5)
-lever_rotation_speed_update_speed = 0.4
 
 [node name="Fins" type="Node2D" parent="." unique_id=1091621099]
 position = Vector2(-111, -120)
@@ -307,12 +314,10 @@ script = ExtResource("4_gc5cj")
 [node name="Lever" parent="Fins" unique_id=770815668 instance=ExtResource("6_0qqje")]
 position = Vector2(40, 82)
 scale = Vector2(0.5, 0.5)
-link_name = "Lever2"
 
 [node name="Lever2" parent="Fins" unique_id=1017698945 instance=ExtResource("6_0qqje")]
 position = Vector2(92, 82)
 scale = Vector2(0.5, 0.5)
-link_name = "Lever"
 
 [node name="Monitor1" type="AnimatedSprite2D" parent="Fins" unique_id=1127416174]
 position = Vector2(55, 75)
@@ -326,3 +331,12 @@ sprite_frames = SubResource("SpriteFrames_u8shy")
 
 [connection signal="body_entered" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_body_entered"]
 [connection signal="body_exited" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_body_exited"]
+
+[node name="PlankStorage" parent="." unique_id=1408031030 instance=ExtResource("18_kvgwc")]
+position = Vector2(-63.999992, 89)
+scale = Vector2(0.4103244, 0.4103244)
+plank_scene = ExtResource("18_1kwcj")
+
+[node name="Player" parent="." unique_id=1364299286 instance=ExtResource("7_gc5cj")]
+position = Vector2(-38, 82)
+scale = Vector2(1.0000002, 1.0000002)

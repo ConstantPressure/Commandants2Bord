@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bxthjhssil20q"]
+
+[ext_resource type="Script" uid="uid://cqcayy6dwn416" path="res://Scripts/plank_storage.gd" id="1_widaj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ic0j1"]
+radius = 32.0
+
+[node name="PlankStorage" type="Area2D" unique_id=1807663171 groups=["controllable"]]
+script = ExtResource("1_widaj")
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=2063096716]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -22.0
+offset_right = 22.0
+offset_bottom = 22.0
+pivot_offset = Vector2(2, 27)
+color = Color(0.33633718, 0.26887664, 0.08847024, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1706176574]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+pivot_offset = Vector2(2, 27)
+color = Color(0.49481022, 0.39992857, 0.14767072, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=174987743]
+offset_left = -9.0
+offset_top = -23.000002
+offset_right = 1.0
+offset_bottom = 16.999998
+rotation = 0.7853982
+pivot_offset = Vector2(2, 27)
+color = Color(0.27235118, 0.21585056, 0.06465886, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=821742824]
+offset_left = -4.999998
+offset_top = -33.0
+offset_right = 5.000002
+offset_bottom = 7.0
+rotation = 2.3561945
+pivot_offset = Vector2(2, 27)
+color = Color(0.27235118, 0.21585056, 0.06465886, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=449275630]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_ic0j1")

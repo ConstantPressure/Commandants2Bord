@@ -1,0 +1,28 @@
+extends Area2D
+
+var player: Node2D = null
+@export var plank_scene: PackedScene
+
+func _ready():
+	set_process_input(false)
+
+func _process(delta: float) -> void:
+	pass
+
+func enter():
+	print("enter plank storage")
+	
+	var plank = plank_scene.instantiate()
+	plank.player = player
+	player.controlled_utility = plank
+	plank.enter()
+	get_parent().add_child(plank)
+	
+	self.exit()
+
+func _input(event: InputEvent) -> void:
+	pass
+
+func exit():
+	player = null
+	print("exit plank storage")

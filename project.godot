@@ -23,6 +23,8 @@ fishes=""
 rock=""
 checkpoint=""
 submarine=""
+controllable="object that the player can control"
+interractable=""
 
 [input]
 
