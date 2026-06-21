@@ -13,7 +13,27 @@ func _ready() -> void:
 	prefix = "p" + str(player_id) + "_"
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	if not controlled_utility:
+		move(delta)
+	
+	self.global_rotation = 0
+
+func _input(event: InputEvent) -> void:
+	if controlled_utility:
+		controlled_utility._input(event)
+		return
+	
+	if event.is_action(prefix + "use") and event.is_pressed():
+		controlled_utility = $ControllableDetector.get_closest()
+		if controlled_utility:
+			controlled_utility.player = self
+			controlled_utility.enter()
+	
+	if event is InputEventKey:
+		if event.pressed and event.is_action(prefix + "jump") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+
+func move(delta):
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -31,27 +51,4 @@ func _physics_process(delta: float) -> void:
 	else:
 		anim.play("idle")
 		velocity.x = 0
-
-	if not controlled_utility:
-		move_and_slide()
-	self.global_rotation = 0
-	
-func _input(event: InputEvent) -> void:
-	if controlled_utility:
-		controlled_utility._input(event)
-		
-		if event.is_action(prefix + "use") and event.is_pressed():
-			if controlled_utility.has_method("exit"):
-				controlled_utility.exit()
-			controlled_utility = null
-		
-		return
-	
-	if event.is_action(prefix + "use") and event.is_pressed():
-		controlled_utility = $UtilityDetector.get_closest()
-		if controlled_utility:
-			controlled_utility.prefix = self.prefix
-	
-	if event is InputEventKey:
-		if event.pressed and event.is_action(prefix + "jump") and is_on_floor():
-			velocity.y = JUMP_VELOCITY
+	move_and_slide()

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://qa4rpwd653u7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_33aoo"]
+
+[node name="Hole" type="Area2D" unique_id=926809308 groups=["hole", "interractable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1048649521]
+shape = SubResource("CircleShape2D_33aoo")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=672551819]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=939215013]
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0

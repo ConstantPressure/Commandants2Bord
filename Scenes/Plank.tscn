@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cbhw444fxbagq"]
+
+[ext_resource type="Script" uid="uid://cylkhl34gfohv" path="res://Scripts/plank.gd" id="1_vvjm2"]
+
+[node name="Plank" type="Node2D" unique_id=519451980 groups=["controllable"]]
+script = ExtResource("1_vvjm2")
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=643276983]
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.1
+anchor_right = 0.4
+anchor_bottom = 0.1
+offset_left = -20.0
+offset_top = -5.0
+offset_right = 20.0
+offset_bottom = 5.0
+color = Color(0.27235118, 0.21585056, 0.06465886, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=174987743]
+offset_left = -19.0
+offset_top = -4.0
+offset_right = 21.0
+offset_bottom = 6.0
+color = Color(0.27235118, 0.21585056, 0.06465886, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1706176574]
+offset_left = -21.0
+offset_top = -6.0
+offset_right = 19.0
+offset_bottom = 4.0
+color = Color(0.49481022, 0.39992857, 0.14767072, 1)
+metadata/_edit_use_anchors_ = true
