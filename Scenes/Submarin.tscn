@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bmo1ga6g4seyk"]
 
 [ext_resource type="Script" uid="uid://dkobwvkyhjshb" path="res://Scripts/Submarin/submarin.gd" id="1_g5k47"]
-[ext_resource type="Script" uid="uid://bk23gho0atevb" path="res://Scenes/damage_handler.gd" id="2_kwy8q"]
+[ext_resource type="Script" uid="uid://bk23gho0atevb" path="res://Scripts/Submarin/damage_handler.gd" id="2_kwy8q"]
 [ext_resource type="Texture2D" uid="uid://cvp2khn864x1t" path="res://Assets/Salmon.png" id="2_tc5bk"]
 [ext_resource type="Texture2D" uid="uid://bdoeqlon4505q" path="res://Assets/Submarine/5.png" id="3_l0cdu"]
 [ext_resource type="Script" uid="uid://bpsumhoevejbv" path="res://Scripts/Submarin/motor.gd" id="3_wmfhu"]
@@ -22,11 +22,16 @@
 [ext_resource type="PackedScene" uid="uid://cue33n2bnd2l5" path="res://Scenes/Objects/Light.tscn" id="14_582ut"]
 [ext_resource type="Script" uid="uid://c7o1qnxu1fmc4" path="res://Scripts/Submarin/radar_ui.gd" id="14_kwy8q"]
 [ext_resource type="Script" uid="uid://dym33vk8njt5q" path="res://Scripts/lights.gd" id="15_rmov0"]
-[ext_resource type="PackedScene" uid="uid://cbhw444fxbagq" path="res://Scenes/Plank.tscn" id="18_1kwcj"]
 [ext_resource type="PackedScene" uid="uid://bxthjhssil20q" path="res://Scenes/PlankStorage.tscn" id="18_kvgwc"]
 [ext_resource type="PackedScene" uid="uid://qa4rpwd653u7" path="res://Scenes/Hole.tscn" id="19_7le7c"]
+[ext_resource type="AudioStream" uid="uid://cxk4s5a3qyu8f" path="res://Assets/Sounds/sonar sound effect.mp3" id="21_7ff4u"]
 [ext_resource type="PackedScene" uid="uid://bxelmpaj44oci" path="res://Scenes/WaterPump.tscn" id="26_47jda"]
 [ext_resource type="PackedScene" uid="uid://ciyoojrg1ueu8" path="res://Scenes/ElectricalBox.tscn" id="27_3ksbk"]
+[ext_resource type="AudioStream" uid="uid://bb10ursccjq44" path="res://Assets/Sounds/Submarine Inside.mp3" id="28_gavvh"]
+[ext_resource type="AudioStream" uid="uid://b1etbggnsp5gh" path="res://Assets/Sounds/Sound Effects - Underwater.mp3" id="29_32nty"]
+[ext_resource type="AudioStream" uid="uid://ba0ehl853hb6a" path="res://Assets/Sounds/Underwater Explosion1.mp3" id="30_e6e7t"]
+[ext_resource type="AudioStream" uid="uid://cojjeh2iswnhb" path="res://Assets/Sounds/Underwater Explosion2.mp3" id="31_7ff4u"]
+[ext_resource type="AudioStream" uid="uid://b0m1glwwivbd7" path="res://Assets/Sounds/Underwater Explosion3.mp3" id="32_prgyd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dv7rg"]
 shader = ExtResource("5_7xdoq")
@@ -301,6 +306,11 @@ sprite_frames = SubResource("SpriteFrames_u8shy")
 position = Vector2(7, 19)
 shape = SubResource("CircleShape2D_u8shy")
 
+[node name="SonarSound" type="AudioStreamPlayer2D" parent="Cockpit" unique_id=798400510]
+stream = ExtResource("21_7ff4u")
+volume_db = -35.0
+parameters/looping = true
+
 [node name="Motor" type="Node2D" parent="." unique_id=285889259]
 position = Vector2(-211, 10)
 script = ExtResource("3_wmfhu")
@@ -334,7 +344,6 @@ sprite_frames = SubResource("SpriteFrames_u8shy")
 [node name="PlankStorage" parent="." unique_id=1408031030 instance=ExtResource("18_kvgwc")]
 position = Vector2(-63.999992, 89)
 scale = Vector2(0.4103244, 0.4103244)
-plank_scene = ExtResource("18_1kwcj")
 
 [node name="WaterPump" parent="." unique_id=535061938 instance=ExtResource("26_47jda")]
 position = Vector2(56.000004, 84)
@@ -343,6 +352,30 @@ scale = Vector2(0.3690982, 0.3690982)
 [node name="ElectricalBox" parent="." unique_id=245015454 instance=ExtResource("27_3ksbk")]
 position = Vector2(169.00002, 81.00001)
 scale = Vector2(0.5107683, 0.5107683)
+
+[node name="InsideSound" type="AudioStreamPlayer2D" parent="." unique_id=921627586]
+stream = ExtResource("28_gavvh")
+volume_db = -35.0
+autoplay = true
+parameters/looping = true
+
+[node name="OutsideSound" type="AudioStreamPlayer2D" parent="." unique_id=1491022961]
+stream = ExtResource("29_32nty")
+volume_db = -30.0
+autoplay = true
+parameters/looping = true
+
+[node name="HitSound1" type="AudioStreamPlayer2D" parent="." unique_id=1615746731]
+stream = ExtResource("30_e6e7t")
+volume_db = -15.0
+
+[node name="HitSound2" type="AudioStreamPlayer2D" parent="." unique_id=370139099]
+stream = ExtResource("31_7ff4u")
+volume_db = -15.0
+
+[node name="HitSound3" type="AudioStreamPlayer2D" parent="." unique_id=413055776]
+stream = ExtResource("32_prgyd")
+volume_db = -15.0
 
 [connection signal="area_entered" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_area_entered"]
 [connection signal="area_exited" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_area_exited"]

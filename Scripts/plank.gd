@@ -1,5 +1,11 @@
 extends Node2D
 
+@onready var place_sound_list: Array[AudioStreamPlayer2D] = [
+	$"../PlankStorage/PlaceSound1",
+	$"../PlankStorage/PlaceSound2",
+	$"../PlankStorage/PlaceSound3"
+]
+
 var player: Node2D = null
 
 func _ready():
@@ -18,10 +24,12 @@ func _input(event: InputEvent) -> void:
 	if player:
 		if event.is_action_pressed(player.prefix + "use"):
 			if check_put_back_in_box():
+				place_sound_list[randi_range(0, 2)].play()
 				player.controlled_utility = null
 				self.exit()
 			elif check_do_reparation():
 				repair()
+				place_sound_list[randi_range(0, 2)].play()
 				self.exit()
 
 func exit():

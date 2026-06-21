@@ -1,12 +1,17 @@
 [gd_scene format=3 uid="uid://bxthjhssil20q"]
 
 [ext_resource type="Script" uid="uid://cqcayy6dwn416" path="res://Scripts/plank_storage.gd" id="1_widaj"]
+[ext_resource type="PackedScene" uid="uid://cbhw444fxbagq" path="res://Scenes/Plank.tscn" id="2_dppwl"]
+[ext_resource type="AudioStream" uid="uid://d3y3270xgut7d" path="res://Assets/Sounds/Wood Hit1.mp3" id="2_duvw6"]
+[ext_resource type="AudioStream" uid="uid://cbrf3jfr4db1f" path="res://Assets/Sounds/Wood Hit2.mp3" id="4_xfwap"]
+[ext_resource type="AudioStream" uid="uid://b0mupk2l6prty" path="res://Assets/Sounds/Wood Hit3.mp3" id="5_psboj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ic0j1"]
 radius = 32.0
 
 [node name="PlankStorage" type="Area2D" unique_id=1807663171 groups=["controllable"]]
 script = ExtResource("1_widaj")
+plank_scene = ExtResource("2_dppwl")
 
 [node name="ColorRect4" type="ColorRect" parent="." unique_id=2063096716]
 anchors_preset = 8
@@ -54,3 +59,19 @@ metadata/_edit_use_anchors_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=449275630]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_ic0j1")
+
+[node name="PickUpSound" type="AudioStreamPlayer2D" parent="." unique_id=1051372273]
+stream = ExtResource("2_duvw6")
+volume_db = -10.0
+
+[node name="PlaceSound1" type="AudioStreamPlayer2D" parent="." unique_id=1437563248]
+stream = ExtResource("2_duvw6")
+volume_db = -10.0
+
+[node name="PlaceSound2" type="AudioStreamPlayer2D" parent="." unique_id=1723214247]
+stream = ExtResource("4_xfwap")
+volume_db = -10.0
+
+[node name="PlaceSound3" type="AudioStreamPlayer2D" parent="." unique_id=1329303385]
+stream = ExtResource("5_psboj")
+volume_db = -10.0

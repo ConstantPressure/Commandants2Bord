@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbstqivbqkbf3"
+path="res://.godot/imported/Power Down Sound effect.mp3-117b0df3abf65d045f6b6221d9093a48.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Power Down Sound effect.mp3"
+dest_files=["res://.godot/imported/Power Down Sound effect.mp3-117b0df3abf65d045f6b6221d9093a48.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

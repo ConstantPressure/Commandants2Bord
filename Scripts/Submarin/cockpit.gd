@@ -4,6 +4,7 @@ extends Node2D
 @onready var radar: Area2D = $"Aimer/Radar"
 @onready var radar_ui: CanvasLayer = $"Aimer/Radar/CanvasLayer"
 @onready var scaner_ui: Polygon2D = $"Aimer/Radar/CanvasLayer/Scaner"
+@onready var sonar_sound: AudioStreamPlayer2D = $SonarSound
 
 var player: Node2D = null
 var angle: float = 0.0
@@ -14,6 +15,7 @@ func _ready() -> void:
 	set_process_input(false)
 
 func enter():
+	sonar_sound.play()
 	pass
 
 func _input(event: InputEvent) -> void:
@@ -47,3 +49,4 @@ func _process(delta: float) -> void:
 func exit() -> void:
 	player = null
 	hide_all()
+	sonar_sound.stop()

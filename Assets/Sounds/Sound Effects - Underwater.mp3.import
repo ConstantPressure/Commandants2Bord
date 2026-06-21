@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b1etbggnsp5gh"
+path="res://.godot/imported/Sound Effects - Underwater.mp3-8f5b4d05e9b6b4ed167365be7b71f3d0.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Sound Effects - Underwater.mp3"
+dest_files=["res://.godot/imported/Sound Effects - Underwater.mp3-8f5b4d05e9b6b4ed167365be7b71f3d0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

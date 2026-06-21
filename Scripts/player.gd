@@ -48,7 +48,6 @@ func handle_interractable(event):
 			if closest.is_in_group("electrical_box"):
 				closest.change_state()
 				submarin.is_ligth_on = closest.activated
-				print(submarin.is_ligth_on)
 
 func move(delta):
 	if not is_on_floor() and not is_flying:

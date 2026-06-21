@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bxelmpaj44oci"]
 
+[ext_resource type="AudioStream" uid="uid://06i3cm7uu7ke" path="res://Assets/Sounds/Hand Pump Sound Effect - Free Download & No Copyright.mp3" id="1_4lai3"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ic0j1"]
 radius = 32.0
 
@@ -47,3 +49,7 @@ metadata/_edit_use_anchors_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=449275630]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_ic0j1")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=979173457]
+stream = ExtResource("1_4lai3")
+volume_db = -30.0

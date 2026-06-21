@@ -1,5 +1,7 @@
 extends Area2D
 
+@onready var pick_up_sound: AudioStreamPlayer2D = $PickUpSound
+
 var player: Node2D = null
 @export var plank_scene: PackedScene
 
@@ -15,7 +17,7 @@ func enter():
 	player.controlled_utility = plank
 	plank.enter()
 	get_parent().add_child(plank)
-	
+	pick_up_sound.play()
 	self.exit()
 
 func _input(event: InputEvent) -> void:
