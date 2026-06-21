@@ -7,8 +7,9 @@ func _ready():
 	self.scale /= 2
 
 func _process(delta: float) -> void:
-	player.move(delta)
-	self.position = player.position + Vector2(0, -20)
+	if player:
+		player.move(delta)
+		self.position = player.position + Vector2(0, -20)
 
 func enter():
 	pass

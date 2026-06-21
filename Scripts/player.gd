@@ -23,26 +23,22 @@ func _input(event: InputEvent) -> void:
 		controlled_utility._input(event)
 		return
 	
-	if event.is_action(prefix + "use") and event.is_pressed():
-		controlled_utility = $ControllableDetector.get_closest()
-		if controlled_utility:
+	if event.is_action_pressed(prefix + "use"):
+		var closest = $ControllableDetector.get_closest()
+		if closest:
+			if closest.player:
+				return
+			controlled_utility = closest
 			controlled_utility.player = self
 			controlled_utility.enter()
-	
-	if event is InputEventKey:
-		if event.pressed and event.is_action(prefix + "jump") and is_on_floor():
-			velocity.y = JUMP_VELOCITY
 
 func move(delta):
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle jump.
 	if Input.is_action_just_pressed(prefix + "jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis(prefix + "left", prefix + "right")
 	if direction:
 		anim.play("move")
