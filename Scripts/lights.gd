@@ -11,7 +11,7 @@ func set_lights(color: Color):
 	color.g = submarin.health / 100.0
 	color.b = submarin.health / 100.0
 	for light in get_children():
-		light.get_node("PointLight2D").color = color
+		light.get_node("PointLight2D").color = color if submarin.is_ligth_on else color * 0.2
 
 func _process(delta: float) -> void:
 	set_lights(base_color * mult)

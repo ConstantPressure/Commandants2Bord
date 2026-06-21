@@ -25,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://cbhw444fxbagq" path="res://Scenes/Plank.tscn" id="18_1kwcj"]
 [ext_resource type="PackedScene" uid="uid://bxthjhssil20q" path="res://Scenes/PlankStorage.tscn" id="18_kvgwc"]
 [ext_resource type="PackedScene" uid="uid://qa4rpwd653u7" path="res://Scenes/Hole.tscn" id="19_7le7c"]
+[ext_resource type="PackedScene" uid="uid://bxelmpaj44oci" path="res://Scenes/WaterPump.tscn" id="26_47jda"]
+[ext_resource type="PackedScene" uid="uid://ciyoojrg1ueu8" path="res://Scenes/ElectricalBox.tscn" id="27_3ksbk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dv7rg"]
 shader = ExtResource("5_7xdoq")
@@ -225,7 +227,7 @@ position = Vector2(128, -60.000004)
 rotation = -9.427094
 
 [node name="Light12" parent="Objects/lights" unique_id=2122252391 instance=ExtResource("14_582ut")]
-position = Vector2(227.99998, -73)
+position = Vector2(234.99998, -80)
 rotation = -11.004557
 
 [node name="Mop" parent="Objects" unique_id=2053221755 instance=ExtResource("13_y47bk")]
@@ -244,7 +246,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_pb85f")
 
 [node name="Estinguisher" parent="Objects" unique_id=303774454 instance=ExtResource("12_vguhp")]
-position = Vector2(73, 89)
+position = Vector2(90, 89)
 
 [node name="Cockpit" type="Area2D" parent="." unique_id=1831207646 groups=["controllable"]]
 position = Vector2(265, -50)
@@ -333,6 +335,14 @@ sprite_frames = SubResource("SpriteFrames_u8shy")
 position = Vector2(-63.999992, 89)
 scale = Vector2(0.4103244, 0.4103244)
 plank_scene = ExtResource("18_1kwcj")
+
+[node name="WaterPump" parent="." unique_id=535061938 instance=ExtResource("26_47jda")]
+position = Vector2(56.000004, 84)
+scale = Vector2(0.3690982, 0.3690982)
+
+[node name="ElectricalBox" parent="." unique_id=245015454 instance=ExtResource("27_3ksbk")]
+position = Vector2(169.00002, 81.00001)
+scale = Vector2(0.5107683, 0.5107683)
 
 [connection signal="body_entered" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_body_entered"]
 [connection signal="body_exited" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_body_exited"]

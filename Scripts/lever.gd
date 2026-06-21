@@ -28,17 +28,18 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if player:
-		if event.is_action_pressed(player.prefix + "right"):
-			if event.is_pressed():
-				lever_target_rotation = 1
-			if not event.is_pressed() and lever_target_rotation != 0:
-				lever_target_rotation = lever_rotation
-		if event.is_action_pressed(player.prefix + "left"):
-			if event.is_pressed():
-				lever_target_rotation = -1
-			if not event.is_pressed() and lever_target_rotation != 0:
-				lever_target_rotation = lever_rotation
-		
+		if player.submarin.is_ligth_on:
+			if event.is_action_pressed(player.prefix + "right"):
+				if event.is_pressed():
+					lever_target_rotation = 1
+				if not event.is_pressed() and lever_target_rotation != 0:
+					lever_target_rotation = lever_rotation
+			if event.is_action_pressed(player.prefix + "left"):
+				if event.is_pressed():
+					lever_target_rotation = -1
+				if not event.is_pressed() and lever_target_rotation != 0:
+					lever_target_rotation = lever_rotation
+			
 		if event.is_action_pressed(player.prefix + "use"):
 			player.controlled_utility = null
 			self.exit()
