@@ -18,12 +18,13 @@ config/icon="res://icon.svg"
 [global_group]
 
 player=""
+utility="object that the player can control"
 fishes=""
-rock=""
 checkpoint=""
 submarine=""
 controllable="object that the player can control"
 interractable=""
+items=""
 
 [input]
 

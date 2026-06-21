@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bujci711c2kqe" path="res://Assets/Tile.png" id="8_vy5pj"]
 [ext_resource type="Texture2D" uid="uid://ch7ux53gvdm68" path="res://Assets/Objects/Pointer1.png" id="9_bmxlf"]
 [ext_resource type="Texture2D" uid="uid://bmkx43vsbt5yi" path="res://Assets/pngtree-chicken-giving-a-thumbs-up-png-image_17415906.png" id="9_vy5pj"]
+[ext_resource type="Texture2D" uid="uid://dc8v1g3j704kl" path="res://Assets/global_free_recoloured.png" id="10_bmxlf"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgh2o"]
 distance = -701.0
@@ -118,6 +119,54 @@ terrain_set_0/terrain_0/name = "Mur"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_d41ab")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_u8shy"]
+radius = 60.074955
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grg3l"]
+atlas = ExtResource("10_bmxlf")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u8shy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grg3l")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kpch"]
+atlas = ExtResource("10_bmxlf")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4kpch"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kpch")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmxlf"]
+atlas = ExtResource("10_bmxlf")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_grg3l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmxlf")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Main" type="Node2D" unique_id=1919346275]
 script = ExtResource("1_pbw6q")
 
@@ -166,7 +215,6 @@ rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_u8shy")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1551265539]
-visible = false
 color = Color(0.029506557, 0.029506557, 0.029506572, 1)
 
 [node name="Submarin" parent="." unique_id=674800171 instance=ExtResource("1_r150o")]
@@ -240,7 +288,7 @@ position = Vector2(1176, -1461)
 [node name="Anchovy4" parent="." unique_id=871459556 instance=ExtResource("5_pbw6q")]
 position = Vector2(2418, 879)
 
-[node name="End" type="Area2D" parent="." unique_id=1383726101]
+[node name="End" type="Area2D" parent="." unique_id=1383726101 groups=["checkpoint"]]
 position = Vector2(8567.001, -329)
 scale = Vector2(4.505, 4.505)
 
@@ -265,5 +313,35 @@ texture = ExtResource("9_vy5pj")
 [node name="EndTimer" type="Timer" parent="End" unique_id=1724352560]
 wait_time = 3.0
 
+[node name="EndItem1" type="Area2D" parent="." unique_id=2010971087 groups=["items"]]
+position = Vector2(-4767, 583)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndItem1" unique_id=368933545]
+shape = SubResource("CircleShape2D_u8shy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EndItem1" unique_id=1356591952]
+sprite_frames = SubResource("SpriteFrames_u8shy")
+
+[node name="EndItem2" type="Area2D" parent="." unique_id=319589869 groups=["items"]]
+position = Vector2(631, -242)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndItem2" unique_id=1887925489]
+shape = SubResource("CircleShape2D_u8shy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EndItem2" unique_id=1904494370]
+sprite_frames = SubResource("SpriteFrames_4kpch")
+
+[node name="EndItem3" type="Area2D" parent="." unique_id=1549878709 groups=["items"]]
+position = Vector2(6722, 751)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndItem3" unique_id=102833899]
+shape = SubResource("CircleShape2D_u8shy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EndItem3" unique_id=1461593835]
+sprite_frames = SubResource("SpriteFrames_grg3l")
+
 [connection signal="body_entered" from="End" to="." method="_on_end_body_entered"]
 [connection signal="timeout" from="End/EndTimer" to="." method="_on_end_timer_timeout"]
+[connection signal="body_entered" from="EndItem1" to="." method="_on_end_item_1_body_entered"]
+[connection signal="body_entered" from="EndItem2" to="." method="_on_end_item_2_body_entered"]
+[connection signal="body_entered" from="EndItem3" to="." method="_on_end_item_3_body_entered"]

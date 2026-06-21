@@ -344,5 +344,7 @@ scale = Vector2(0.3690982, 0.3690982)
 position = Vector2(169.00002, 81.00001)
 scale = Vector2(0.5107683, 0.5107683)
 
+[connection signal="area_entered" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_area_entered"]
+[connection signal="area_exited" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_area_exited"]
 [connection signal="body_entered" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_body_entered"]
 [connection signal="body_exited" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_body_exited"]
