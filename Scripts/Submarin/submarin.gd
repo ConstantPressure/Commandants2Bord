@@ -3,11 +3,15 @@ extends CharacterBody2D
 @onready var outside_sound: AudioStreamPlayer2D = $OutsideSound
 @onready var inside_sound: AudioStreamPlayer2D = $InsideSound
 @onready var hit_sounds: Array[AudioStreamPlayer2D] = [$HitSound1, $HitSound2, $HitSound3]
+@onready var game_over: Timer = $GameOver
+@onready var game_over_sound: AudioStreamPlayer2D = $GameOverSound
+@onready var game_over_explosion: Sprite2D = $GameOverExplosion
 
 var direction: Vector2 = Vector2(1.0, 0.0)
 var speed: float = 0.0
 
 var health: float = 100
+var explosion_game_over_scale: float = 0.0
 
 var is_ligth_on: bool = true
 var knockback: Vector2 = Vector2.ZERO
@@ -36,7 +40,7 @@ func _physics_process(_delta: float) -> void:
 	water_shader.material.set("shader_parameter/liquid_level", water_level)
 	move_and_slide()
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	var submarin_speed: float = (velocity.x + velocity.y) * 0.05
 	if submarin_speed < 0:
 		submarin_speed *= -1
@@ -45,5 +49,12 @@ func _process(_delta: float) -> void:
 		inside_sound.volume_db = -50
 	else:
 		inside_sound.volume_db = -30
-	if health < 0:
-		pass
+	if health <= 0: 
+		if game_over.is_stopped():
+			game_over.start()
+			game_over_sound.play()
+		explosion_game_over_scale = lerp(explosion_game_over_scale, 1.0, 1 * delta)
+		game_over_explosion.modulate = Color(1, 1, 1, explosion_game_over_scale)
+
+func _on_game_over_timeout() -> void:
+	get_tree().quit()

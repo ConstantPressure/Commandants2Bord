@@ -339,7 +339,7 @@ stream = ExtResource("12_frkhe")
 parameters/looping = true
 
 [node name="EndItem1" type="Area2D" parent="." unique_id=2010971087 groups=["items"]]
-position = Vector2(-4767, 583)
+position = Vector2(-4767, 598)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndItem1" unique_id=368933545]
 shape = SubResource("CircleShape2D_u8shy")
@@ -348,7 +348,7 @@ shape = SubResource("CircleShape2D_u8shy")
 sprite_frames = SubResource("SpriteFrames_u8shy")
 
 [node name="EndItem2" type="Area2D" parent="." unique_id=319589869 groups=["items"]]
-position = Vector2(631, -242)
+position = Vector2(919, -276)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndItem2" unique_id=1887925489]
 shape = SubResource("CircleShape2D_u8shy")
