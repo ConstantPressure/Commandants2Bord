@@ -30,4 +30,3 @@ func _on_spawner_timeout() -> void:
 	var new_anchoy = anchoy_res.instantiate()
 	new_anchoy.global_position = Vector2(20, 0)
 	add_child(new_anchoy)
-	print("spawned")

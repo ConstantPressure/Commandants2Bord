@@ -30,7 +30,6 @@ func _physics_process(_delta: float) -> void:
 	velocity = motor_velocity + knockback
 	knockback = knockback.lerp(Vector2.ZERO, KNOCKBACK_DECAY)
 	var water_level = lerp(0.697, 0.659, health / 100.0)
-	print(water_level)
 	water_shader.material.set("shader_parameter/liquid_level", water_level)
 	move_and_slide()
 
