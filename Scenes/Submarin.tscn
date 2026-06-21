@@ -46,7 +46,7 @@ polygon = PackedVector2Array(-366, -48, -366, 68, -300, 68, -300, 31, 11, 31, 11
 polygon = PackedVector2Array(-304, -13, -304, 4, 14, 4, 14, -35, -177, -35, -177, -13)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mlgr5"]
-radius = 5481.2188
+radius = 4505.1772
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pb85f"]
 atlas = ExtResource("8_l0cdu")
@@ -248,19 +248,18 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("12_gfngk")
 
 [node name="Radar" type="Area2D" parent="Cockpit/Aimer" unique_id=749649999]
-visible = false
-collision_mask = 4
 script = ExtResource("13_7le7c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cockpit/Aimer/Radar" unique_id=1071516950]
 shape = SubResource("CircleShape2D_mlgr5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Cockpit/Aimer/Radar" unique_id=308504692]
-visible = false
 
 [node name="RadarUI" type="MarginContainer" parent="Cockpit/Aimer/Radar/CanvasLayer" unique_id=350605035]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 797.0
+offset_top = 294.0
+offset_right = 1139.0
+offset_bottom = 636.0
 script = ExtResource("14_kwy8q")
 
 [node name="Radar" type="TextureRect" parent="Cockpit/Aimer/Radar/CanvasLayer/RadarUI" unique_id=1646009321]
@@ -315,3 +314,4 @@ scale = Vector2(-0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_u8shy")
 
 [connection signal="body_entered" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_body_entered"]
+[connection signal="body_exited" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_body_exited"]
