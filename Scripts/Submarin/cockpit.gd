@@ -5,6 +5,7 @@ extends Node2D
 @onready var radar_ui: CanvasLayer = $"Aimer/Radar/CanvasLayer"
 @onready var scaner_ui: Polygon2D = $"Aimer/Radar/CanvasLayer/Scaner"
 @onready var sonar_sound: AudioStreamPlayer2D = $SonarSound
+@onready var submarin_sprite: Node2D = $Aimer/Radar/CanvasLayer/RadarUI/Radar/Submarine
 
 var player: Node2D = null
 var angle: float = 0.0
@@ -44,7 +45,8 @@ func _process(delta: float) -> void:
 		if Input.is_action_pressed(player.prefix + "left") and angle > -1.3:
 			angle -= rotate_speed * delta
 		aimer.rotation = angle
-		scaner_ui.rotation = angle
+		scaner_ui.global_rotation = aimer.global_rotation
+		submarin_sprite.global_rotation = get_parent().global_rotation
 
 func exit() -> void:
 	player = null

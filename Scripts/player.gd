@@ -14,6 +14,7 @@ var controlled_utility = null
 func _ready() -> void:
 	anim.play("idle")
 	prefix = "p" + str(player_id) + "_"
+	print(prefix)
 
 func _physics_process(delta: float) -> void:
 	if not controlled_utility:

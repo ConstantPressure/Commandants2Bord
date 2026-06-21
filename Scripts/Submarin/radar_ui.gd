@@ -34,6 +34,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	player.position = center
+	
 	for object in objects.keys():
 		if is_instance_valid(object):
 			var offset: Vector2 = object.position - submarine.position
@@ -46,7 +47,7 @@ func _physics_process(delta: float) -> void:
 				var to_object_angle: float = offset.angle()
 				var diff: float = angle_difference(to_object_angle, aimer_world_angle)
 				in_cone = abs(diff) <= half_cone
-			var rotated_offset = offset.rotated(-submarine.rotation)
+			var rotated_offset = offset #offset.rotated(-submarine.rotation)
 			var radar_pos: Vector2 = rotated_offset * r_scale
 			var radar_dist: float = radar_pos.length()
 			var max_radar_radius: float = r_size.x / 2
