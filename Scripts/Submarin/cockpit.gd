@@ -13,10 +13,13 @@ func _ready() -> void:
 	hide_all()
 	set_process_input(false)
 
+func enter():
+	pass
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(player.prefix + "use"):
-		self.exit()
 		player.controlled_utility = null
+		self.exit()
 
 func show_all() -> void:
 	if not aimer.visible:
@@ -34,7 +37,7 @@ func hide_all() -> void:
 func _process(delta: float) -> void:
 	if player:
 		show_all()
-		if Input.is_action_pressed(prefix + "right") and angle < 0.9:
+		if Input.is_action_pressed(player.prefix + "right") and angle < 0.9:
 			angle += rotate_speed * delta
 		if Input.is_action_pressed(player.prefix + "left") and angle > -1.3:
 			angle -= rotate_speed * delta

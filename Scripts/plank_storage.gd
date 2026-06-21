@@ -10,8 +10,6 @@ func _process(delta: float) -> void:
 	pass
 
 func enter():
-	print("enter plank storage")
-	
 	var plank = plank_scene.instantiate()
 	plank.player = player
 	player.controlled_utility = plank
@@ -25,4 +23,3 @@ func _input(event: InputEvent) -> void:
 
 func exit():
 	player = null
-	print("exit plank storage")

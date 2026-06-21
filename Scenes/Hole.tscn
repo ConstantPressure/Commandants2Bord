@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://qa4rpwd653u7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_33aoo"]
+radius = 30.0
 
 [node name="Hole" type="Area2D" unique_id=926809308 groups=["hole", "interractable"]]
 

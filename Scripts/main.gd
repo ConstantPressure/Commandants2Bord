@@ -19,6 +19,7 @@ func _on_input_changed(device: int, connected: bool) -> void:
 				return
 		var new_player = player_res.instantiate()
 		new_player.player_id = device + 1
+		new_player.position = $PlayerSpawner.position
 		submarin.add_child(new_player)
 	else:
 		for child in submarin.get_children():

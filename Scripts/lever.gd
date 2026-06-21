@@ -39,9 +39,8 @@ func _input(event: InputEvent) -> void:
 			lever_target_rotation = lever_rotation
 	
 	if event.is_action_pressed(player.prefix + "use"):
-		self.exit()
 		player.controlled_utility = null
-	
+		self.exit()
 
 func exit():
 	lever_target_rotation = lever_rotation

@@ -28,12 +28,12 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dv7rg"]
 shader = ExtResource("5_7xdoq")
-shader_parameter/liquid_level = 0.6590000313025
+shader_parameter/liquid_level = 0.5
 shader_parameter/liquid_color = Color(0.2, 0.5, 1, 0.8)
 shader_parameter/foam_color = Color(0.8, 0.9, 1, 0.6)
-shader_parameter/wave_amplitude = 0.00400000019
+shader_parameter/wave_amplitude = 0.0030000001425
 shader_parameter/wave_frequency = 2.582000122645
-shader_parameter/wave_speed = 1.4050000667375
+shader_parameter/wave_speed = 0.2000000095
 shader_parameter/gravity_angle = 0.0004100308367998
 shader_parameter/gravity_direction = Vector2(0, 1)
 shader_parameter/foam_thickness = 0.02
@@ -148,7 +148,7 @@ position = Vector2(-560, -1344)
 texture = ExtResource("6_kr7u8")
 texture_offset = Vector2(0, 500)
 texture_scale = Vector2(0.13, 0.13)
-polygon = PackedVector2Array(-2792.7668, -2090.771, 3935.711, -1885.331, 3883.1797, 3262.8013, -2683.3164, 3315.3335)
+polygon = PackedVector2Array(-2098.1294, 818.0232, 4630.348, 1023.46313, 4577.817, 6171.5957, -1988.679, 6224.128)
 
 [node name="Inside1" type="StaticBody2D" parent="Boundaries" unique_id=35362935]
 collision_layer = 2
@@ -329,14 +329,10 @@ position = Vector2(78, 75)
 scale = Vector2(-0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_u8shy")
 
-[connection signal="body_entered" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_body_entered"]
-[connection signal="body_exited" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_body_exited"]
-
 [node name="PlankStorage" parent="." unique_id=1408031030 instance=ExtResource("18_kvgwc")]
 position = Vector2(-63.999992, 89)
 scale = Vector2(0.4103244, 0.4103244)
 plank_scene = ExtResource("18_1kwcj")
 
-[node name="Player" parent="." unique_id=1364299286 instance=ExtResource("7_gc5cj")]
-position = Vector2(-38, 82)
-scale = Vector2(1.0000002, 1.0000002)
+[connection signal="body_entered" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_body_entered"]
+[connection signal="body_exited" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_body_exited"]

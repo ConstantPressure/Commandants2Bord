@@ -1,7 +1,13 @@
 extends Node
 
 @onready var boundaries = $"../Boundaries/InsideBackground"
+@onready var submarin = get_parent()
 @export var hole_scene: PackedScene
+
+var HOLE_DPS := 1
+
+func _process(delta: float) -> void:
+	submarin.health = max(0, submarin.health - get_tree().get_node_count_in_group("hole") * HOLE_DPS * delta)
 
 func generate_hole():
 	var hole = hole_scene.instantiate()

@@ -58,6 +58,9 @@ color = Color(0.029506557, 0.029506557, 0.029506572, 1)
 [node name="Spawner" type="Timer" parent="." unique_id=88231397]
 wait_time = 5.0
 
+[node name="PlayerSpawner" type="Marker2D" parent="." unique_id=700654335]
+position = Vector2(-58, -91)
+
 [node name="Anchovy" parent="." unique_id=409646533 instance=ExtResource("5_pbw6q")]
 position = Vector2(2551, -843)
 
@@ -78,5 +81,8 @@ position = Vector2(3854, -1442)
 
 [node name="Anchovy7" parent="." unique_id=1741261700 instance=ExtResource("5_pbw6q")]
 position = Vector2(4052, -1511)
+
+[node name="Anchovy8" parent="." unique_id=1118451313 instance=ExtResource("5_pbw6q")]
+position = Vector2(612, -185)
 
 [connection signal="timeout" from="Spawner" to="." method="_on_spawner_timeout"]
