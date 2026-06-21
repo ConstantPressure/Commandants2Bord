@@ -9,6 +9,7 @@ const player_res: Resource = preload("res://Scenes/Player.tscn")
 @onready var end_item_1: Area2D = $EndItem1
 @onready var end_item_2: Area2D = $EndItem2
 @onready var end_item_3: Area2D = $EndItem3
+@onready var cucaracha: AudioStreamPlayer2D = $End/Cucaracha
 
 var items_found: int = 0
 
@@ -37,6 +38,8 @@ func _on_end_body_entered(body: Node2D) -> void:
 	if body.name == "Submarin":
 		pouleto.show()
 		end_timer.start()
+		cucaracha.play()
+		
 
 func _on_end_timer_timeout() -> void:
 	get_tree().quit()

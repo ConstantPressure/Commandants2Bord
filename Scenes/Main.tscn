@@ -300,6 +300,8 @@ texture = ExtResource("7_4kpch")
 position = Vector2(-5.2535076, 34.733402)
 stream = ExtResource("8_grg3l")
 volume_db = -15.0
+autoplay = true
+parameters/looping = true
 
 [node name="End" type="Area2D" parent="." unique_id=1383726101 groups=["checkpoint"]]
 position = Vector2(8567.001, -329)
@@ -324,7 +326,7 @@ scale = Vector2(0.113419525, 0.058293216)
 texture = ExtResource("9_vy5pj")
 
 [node name="EndTimer" type="Timer" parent="End" unique_id=1724352560]
-wait_time = 3.0
+wait_time = 10.0
 
 [node name="Cucaracha" type="AudioStreamPlayer2D" parent="End" unique_id=354579856]
 position = Vector2(145.17181, -792.4528)
