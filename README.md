@@ -14,7 +14,7 @@ However, these waters are far from calm; I hope your crew will be ready for any 
 
 ## The rooms
 
-<img width="771" height="307" alt="image" src="https://github.com/user-attachments/assets/664d24cf-000f-401a-beff-886d6de56004" />
+<img width="771" height="307" alt="610907201-664d24cf-000f-401a-beff-886d6de56004" src="https://github.com/user-attachments/assets/bfd553ef-0799-42fb-9d90-37ed96bd4613" />
 
 ### Motor
 
