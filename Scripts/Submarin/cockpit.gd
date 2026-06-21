@@ -3,14 +3,14 @@ extends Node2D
 @onready var aimer: Node2D = $"Aimer"
 @onready var radar: Area2D = $"Aimer/Radar"
 @onready var radar_ui: CanvasLayer = $"Aimer/Radar/CanvasLayer"
+@onready var scaner_ui: Polygon2D = $"Aimer/Radar/CanvasLayer/Scaner"
 
 var prefix: String = ""
 var angle: float = 0.0
 var rotate_speed: float = 1
 
 func _ready() -> void:
-	#hide_all()
-	pass
+	hide_all()
 
 func _input(event: InputEvent) -> void:
 	pass
@@ -36,6 +36,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_pressed(prefix + "left") and angle > -1.3:
 			angle -= rotate_speed * delta
 		aimer.rotation = angle
+		scaner_ui.rotation = angle
 
 func exit() -> void:
 	prefix = ""

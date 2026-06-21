@@ -16,7 +16,6 @@
 [ext_resource type="Script" uid="uid://okmr4btmdgsp" path="res://Scripts/Submarin/radar.gd" id="13_7le7c"]
 [ext_resource type="Texture2D" uid="uid://b0ixtav7xywdx" path="res://Assets/Submarine/Radar.png" id="13_kvgwc"]
 [ext_resource type="PackedScene" uid="uid://dnea2oqv3p0e6" path="res://Scenes/Objects/Mop.tscn" id="13_y47bk"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="14_1kwcj"]
 [ext_resource type="PackedScene" uid="uid://cue33n2bnd2l5" path="res://Scenes/Objects/Light.tscn" id="14_582ut"]
 [ext_resource type="Script" uid="uid://c7o1qnxu1fmc4" path="res://Scripts/Submarin/radar_ui.gd" id="14_kwy8q"]
 [ext_resource type="Script" uid="uid://dym33vk8njt5q" path="res://Scripts/lights.gd" id="15_rmov0"]
@@ -26,6 +25,10 @@ polygon = PackedVector2Array(-366, -48, -366, 68, -300, 68, -300, 31, 11, 31, 11
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0qqje"]
 polygon = PackedVector2Array(-304, -13, -304, 4, 14, 4, 14, -35, -177, -35, -177, -13)
+
+[sub_resource type="Curve" id="Curve_1kwcj"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(0.39, 1), 0.0, 0.0, 0, 0, Vector2(0.505, 0), 0.0, 0.0, 0, 0, Vector2(0.885, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mlgr5"]
 radius = 4505.1772
@@ -223,11 +226,19 @@ texture = ExtResource("12_gfngk")
 
 [node name="Radar" type="Area2D" parent="Cockpit/Aimer" unique_id=749649999]
 script = ExtResource("13_7le7c")
+scaner_curve = SubResource("Curve_1kwcj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cockpit/Aimer/Radar" unique_id=1071516950]
 shape = SubResource("CircleShape2D_mlgr5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Cockpit/Aimer/Radar" unique_id=308504692]
+
+[node name="Scaner" type="Polygon2D" parent="Cockpit/Aimer/Radar/CanvasLayer" unique_id=2051590267]
+position = Vector2(968.00006, 465)
+rotation = 0.47996554
+scale = Vector2(0.31, 0.31)
+color = Color(0, 0.6, 0.23921569, 0.3882353)
+polygon = PackedVector2Array(17, -22, 440, -331, 527, -164, 29, -1)
 
 [node name="RadarUI" type="MarginContainer" parent="Cockpit/Aimer/Radar/CanvasLayer" unique_id=350605035]
 offset_left = 797.0
@@ -241,9 +252,9 @@ layout_mode = 2
 texture = ExtResource("13_kvgwc")
 
 [node name="Submarine" type="Sprite2D" parent="Cockpit/Aimer/Radar/CanvasLayer/RadarUI/Radar" unique_id=1165236087]
-position = Vector2(171, 186.99998)
-scale = Vector2(0.15625, 0.15625025)
-texture = ExtResource("14_1kwcj")
+position = Vector2(171, 170.99998)
+scale = Vector2(-0.111, 0.111)
+texture = ExtResource("2_tc5bk")
 
 [node name="Monitor1" type="AnimatedSprite2D" parent="Cockpit" unique_id=979984237]
 position = Vector2(12, 18)
