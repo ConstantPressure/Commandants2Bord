@@ -26,7 +26,7 @@ The engine is the most important room because it allows the submarine to move fo
 
 ### Fins
 
-The flippers room is also very important since it allows the submarine to change direction.
+The flippers room is also very important since it allows the submarine to change direction. **You must use both lever at the same time for this tool !**
 
 *Actions:*
 * *Right button (hop in / leave)*
