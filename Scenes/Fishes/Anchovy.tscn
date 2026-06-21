@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cdnp43g0r0wrp" path="res://Assets/Fishs/Anchovy.png" id="1_4jvge"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u8shy"]
-radius = 405.0111
+radius = 1151.1255
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ik8r"]
 radius = 136.09187

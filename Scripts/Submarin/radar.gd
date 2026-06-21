@@ -13,10 +13,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_body_entered(body: Node2D) -> void:
-	print("add")
-	print(body.get_groups())
 	if body.is_in_group("fishes"):
-		print("passage")
 		radar_ui.add_object(body, fish_icon)
 	if body.is_in_group("rock"):
 		radar_ui.add_object(body, rock_icon)
@@ -25,5 +22,4 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _on_body_exited(body: Node2D) -> void:
-	print("remove")
 	radar_ui.remove_object(body)

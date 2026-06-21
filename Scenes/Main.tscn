@@ -60,12 +60,12 @@ color = Color(0.029506557, 0.029506557, 0.029506572, 1)
 wait_time = 5.0
 
 [node name="Anchovy" parent="." unique_id=409646533 instance=ExtResource("5_pbw6q")]
-position = Vector2(1563, 14)
+position = Vector2(-1630, -402)
 
 [node name="Anchovy2" parent="." unique_id=659298695 instance=ExtResource("5_pbw6q")]
-position = Vector2(1101, -534)
+position = Vector2(1535, -601)
 
 [node name="Anchovy3" parent="." unique_id=1077548599 instance=ExtResource("5_pbw6q")]
-position = Vector2(966, 610)
+position = Vector2(1437, 677)
 
 [connection signal="timeout" from="Spawner" to="." method="_on_spawner_timeout"]
