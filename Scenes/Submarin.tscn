@@ -326,10 +326,12 @@ script = ExtResource("4_gc5cj")
 [node name="Lever" parent="Fins" unique_id=770815668 instance=ExtResource("6_0qqje")]
 position = Vector2(40, 82)
 scale = Vector2(0.5, 0.5)
+link_name = "Lever2"
 
 [node name="Lever2" parent="Fins" unique_id=1017698945 instance=ExtResource("6_0qqje")]
 position = Vector2(92, 82)
 scale = Vector2(0.5, 0.5)
+link_name = "Lever"
 
 [node name="Monitor1" type="AnimatedSprite2D" parent="Fins" unique_id=1127416174]
 position = Vector2(55, 75)
@@ -397,8 +399,17 @@ volume_db = -10.0
 modulate = Color(1, 1, 1, 0)
 texture = ExtResource("34_prgyd")
 
-[node name="PlayerSpawner" type="Marker2D" parent="." unique_id=834684063]
-position = Vector2(-322, 53)
+[node name="PlayerSpawner1" type="Marker2D" parent="." unique_id=834684063]
+position = Vector2(-100, -71)
+
+[node name="PlayerSpawner2" type="Marker2D" parent="." unique_id=378234745]
+position = Vector2(-69, -72)
+
+[node name="PlayerSpawner3" type="Marker2D" parent="." unique_id=986036501]
+position = Vector2(-38, -72)
+
+[node name="PlayerSpawner4" type="Marker2D" parent="." unique_id=875948260]
+position = Vector2(-10, -73)
 
 [connection signal="area_entered" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_area_entered"]
 [connection signal="area_exited" from="Cockpit/Aimer/Radar" to="Cockpit/Aimer/Radar" method="_on_area_exited"]
