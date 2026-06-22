@@ -12,6 +12,16 @@ Très sympa comme jeu
 You were **trapped** in the low tide. Your goal is to find the **3 magic objects** that help **raise the tide**.
 However, these waters are far from calm; I hope your crew will be ready for any casualties.
 
+## Player
+
+A cute little robot, not really ready for what's coming.
+
+*Actions:*
+* *Down button (jump)*
+* *Right button (use)*
+* *Left button (toggle jetpack)*
+* *Left joystick (move / fly)*
+
 ## The rooms
 
 <img width="771" height="307" alt="610907201-664d24cf-000f-401a-beff-886d6de56004" src="https://github.com/user-attachments/assets/bfd553ef-0799-42fb-9d90-37ed96bd4613" />
@@ -26,7 +36,7 @@ The engine is the most important room because it allows the submarine to move fo
 
 ### Fins
 
-The flippers room is also very important since it allows the submarine to change direction. **You must use both lever at the same time for this tool !**
+The flippers room is also very important since it allows the submarine to change direction. **You must use both lever at the same time !**
 
 *Actions:*
 * *Right button (hop in / leave)*
@@ -60,7 +70,7 @@ If you haven’t managed to be discreet, you may suffer some damage. Don’t pan
 Last resort, if you haven’t fixed the holes quickly enough, you will have to drain the water that has crept into your submarine. The pump is there for that! However, it doesn’t work miracles; you’ll need a lot of elbow grease if you want to survive.
 
 *Actions:*
-* *Right Button (pump water)*
+* *Right Button (pump water, you need to mash it !)*
 
 # Start A Game
 
@@ -70,4 +80,4 @@ Once connected you can start right away !!
 
 # Other
 
-This project was made in two days from Friday 19th June 2026 10am until Sunday 21th June 2026 11:42pm for a GameJame organized by Epitech Paris.
+This project was made in two days from Friday 19th June 2026 10am until Sunday 21th June 2026 11:42pm for a Game jam organized by Epitech Paris.
